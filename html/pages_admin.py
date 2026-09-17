@@ -247,36 +247,131 @@ def build_partner_add():
       <div data-tab-panel="dok" data-tabs-for="padd" hidden>{dokumen_tab}</div>'''
     write('partner-add.html', page('admin', 'partners.html', 'Partner Management', 'Tambah Mitra Baru', content))
 
-def build_master_data():
-    nav_groups = [
-        ('DATA REFERENSI', [('Customer Segment', True), ('Project Type', False), ('Region', False), ('Partner Category', False)]),
-        ('WORKFLOW', [('Workflow Status', False), ('Project Status', False), ('Survey Status', False), ('Quotation Status', False)]),
-        ('DOKUMEN', [('Document Template', False), ('Notification Template', False)]),
-        ('HAK AKSES', [('Role', False)]),
-    ]
-    nav_html = ''
-    for label, items in nav_groups:
-        nav_html += f'<div class="md-nav__label">{label}</div>'
-        for name, active in items:
-            nav_html += f'<a href="#" class="{"is-active" if active else ""}">{name}</a>'
+def md_row(cells, status=None):
+    tds = ''.join(f'<td>{c}</td>' for c in cells[1:])
+    first = f'<td class="mono" style="padding-left:20px">{cells[0]}</td>'
+    status_td = f'<td>{dot_badge(*status)}</td>' if status else ''
+    action = '<td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700);margin-right:14px">Edit</a><a href="#" style="font:600 13px var(--font-head);color:var(--slate-500)">Nonaktifkan</a></td>'
+    return f'<tr>{first}{tds}{status_td}{action}</tr>'
 
-    table = f'''<table class="tbl" style="margin:0">
-      <thead><tr><th style="padding-left:20px">KODE</th><th>STATUS</th><th>NAMA SEGMENT</th><th>DESKRIPSI</th><th>STATUS</th><th style="padding-right:20px">AKSI</th></tr></thead>
-      <tbody>
-        <tr><td class="mono" style="padding-left:20px">B2B-SWT</td><td>B2B Swasta</td><td>Pelanggan swasta / korporasi</td><td>{dot_badge('Aktif','green')}</td><td></td><td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700);margin-right:14px">Edit</a><a href="#" style="font:600 13px var(--font-head);color:var(--slate-500)">Nonaktifkan</a></td></tr>
-        <tr><td class="mono" style="padding-left:20px">GOV-BUMN</td><td>Pemerintah/BUMN</td><td>Instansi pemerintah dan BUMN</td><td>{dot_badge('Aktif','green')}</td><td></td><td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700);margin-right:14px">Edit</a><a href="#" style="font:600 13px var(--font-head);color:var(--slate-500)">Nonaktifkan</a></td></tr>
-      </tbody></table>'''
+def md_table(headers, rows):
+    ths = ''.join(
+        f'<th style="padding-left:20px">{h}</th>' if i == 0 else
+        (f'<th style="padding-right:20px">{h}</th>' if i == len(headers) - 1 else f'<th>{h}</th>')
+        for i, h in enumerate(headers)
+    )
+    return f'<table class="tbl" style="margin:0"><thead><tr>{ths}</tr></thead><tbody>{"".join(rows)}</tbody></table>'
+
+def md_panel(key, group, title, headers, rows, active=False):
+    table = md_table(headers, rows)
+    body = f'''<div class="flex justify-between items-center" style="padding:20px 20px 0">
+            <h3 class="h3">{title}</h3>
+            <button class="btn btn--primary btn--sm">{icon('+',12)} Tambah Data</button>
+          </div>
+          <div class="mt-16">{table}</div>'''
+    hidden = '' if active else ' hidden'
+    return f'<div class="card" style="padding:0" data-tab-panel="{key}" data-tabs-for="{group}"{hidden}>{body}</div>'
+
+def build_master_data():
+    group = 'md'
+    sections = [
+        ('DATA REFERENSI', [
+            ('cust-seg', 'Customer Segment', ['KODE', 'NAMA SEGMENT', 'DESKRIPSI', 'STATUS', 'AKSI'], [
+                md_row(['B2B-SWT', 'B2B Swasta', 'Pelanggan swasta / korporasi'], ('Aktif', 'green')),
+                md_row(['GOV-BUMN', 'Pemerintah/BUMN', 'Instansi pemerintah dan BUMN'], ('Aktif', 'green')),
+                md_row(['RES-PREM', 'Residensial Premium', 'Perumahan kelas atas'], ('Aktif', 'green')),
+                md_row(['IND-MFG', 'Industri Manufaktur', 'Pabrik dan kawasan industri'], ('Nonaktif', 'slate')),
+            ]),
+            ('proj-type', 'Project Type', ['KODE', 'TIPE PROYEK', 'KAPASITAS TYPICAL', 'STATUS', 'AKSI'], [
+                md_row(['RTF-ON', 'PLTS Rooftop On-Grid', '10 &ndash; 500 kWp'], ('Aktif', 'green')),
+                md_row(['GND-ON', 'PLTS Ground Mounted On-Grid', '500 kWp &ndash; 5 MWp'], ('Aktif', 'green')),
+                md_row(['FLT-ON', 'PLTS Floating On-Grid', '1 &ndash; 10 MWp'], ('Aktif', 'green')),
+                md_row(['OFG-HYB', 'PLTS Off-Grid Hybrid', '5 &ndash; 100 kWp'], ('Aktif', 'green')),
+                md_row(['RTF-STO', 'PLTS Rooftop + Storage', '10 &ndash; 200 kWp'], ('Nonaktif', 'slate')),
+            ]),
+            ('region', 'Region', ['KODE', 'NAMA REGION', 'CAKUPAN PROVINSI', 'STATUS', 'AKSI'], [
+                md_row(['REG-JBR', 'Jabodetabek & Jawa Barat', 'DKI Jakarta, Banten, Jawa Barat'], ('Aktif', 'green')),
+                md_row(['REG-JTG', 'Jawa Tengah & DIY', 'Jawa Tengah, DI Yogyakarta'], ('Aktif', 'green')),
+                md_row(['REG-JTM', 'Jawa Timur & Bali Nusra', 'Jawa Timur, Bali, NTB, NTT'], ('Aktif', 'green')),
+                md_row(['REG-SUM', 'Sumatera', 'Sumatera Utara, Sumatera Selatan, Riau'], ('Aktif', 'green')),
+                md_row(['REG-KLM', 'Kalimantan & Sulawesi', 'Kalimantan Timur, Sulawesi Selatan'], ('Nonaktif', 'slate')),
+            ]),
+            ('partner-cat', 'Partner Category', ['KODE', 'KATEGORI', 'DESKRIPSI', 'STATUS', 'AKSI'], [
+                md_row(['CAT-EPC', 'EPC Contractor', 'Kontraktor Engineering, Procurement & Construction'], ('Aktif', 'green')),
+                md_row(['CAT-SUP', 'Material Supplier', 'Pemasok panel surya, inverter, dan BOS'], ('Aktif', 'green')),
+                md_row(['CAT-VEN', 'Vendor Jasa', 'Vendor O&amp;M dan jasa pendukung'], ('Aktif', 'green')),
+                md_row(['CAT-CON', 'Konsultan Teknis', 'Konsultan desain dan studi kelayakan'], ('Nonaktif', 'slate')),
+            ]),
+        ]),
+        ('WORKFLOW', [
+            ('wf-status', 'Workflow Status', ['KODE', 'NAMA STATUS', 'URUTAN', 'WARNA', 'STATUS', 'AKSI'], [
+                md_row(['WF-01', 'Draft', '1', dot_badge('Slate', 'slate')], ('Aktif', 'green')),
+                md_row(['WF-02', 'Menunggu Persetujuan', '2', dot_badge('Amber', 'amber')], ('Aktif', 'green')),
+                md_row(['WF-03', 'Disetujui', '3', dot_badge('Blue', 'blue')], ('Aktif', 'green')),
+                md_row(['WF-04', 'Berjalan', '4', dot_badge('Cyan', 'cyan')], ('Aktif', 'green')),
+                md_row(['WF-05', 'Selesai', '5', dot_badge('Green', 'green')], ('Aktif', 'green')),
+                md_row(['WF-06', 'Dibatalkan', '6', dot_badge('Merah', 'red')], ('Aktif', 'green')),
+            ]),
+            ('proj-status', 'Project Status', ['KODE', 'NAMA STATUS', 'URUTAN', 'WARNA', 'STATUS', 'AKSI'], [
+                md_row(['PRJ-01', 'Survey', '1', dot_badge('Cyan', 'cyan')], ('Aktif', 'green')),
+                md_row(['PRJ-02', 'Quotation', '2', dot_badge('Blue', 'blue')], ('Aktif', 'green')),
+                md_row(['PRJ-03', 'Kontrak', '3', dot_badge('Purple', 'purple')], ('Aktif', 'green')),
+                md_row(['PRJ-04', 'Konstruksi', '4', dot_badge('Amber', 'amber')], ('Aktif', 'green')),
+                md_row(['PRJ-05', 'Commissioning', '5', dot_badge('Green', 'green')], ('Aktif', 'green')),
+                md_row(['PRJ-06', 'Selesai', '6', dot_badge('Slate', 'slate')], ('Aktif', 'green')),
+            ]),
+            ('svy-status', 'Survey Status', ['KODE', 'NAMA STATUS', 'URUTAN', 'WARNA', 'STATUS', 'AKSI'], [
+                md_row(['SVY-01', 'Diajukan', '1', dot_badge('Slate', 'slate')], ('Aktif', 'green')),
+                md_row(['SVY-02', 'Negosiasi Jadwal', '2', dot_badge('Amber', 'amber')], ('Aktif', 'green')),
+                md_row(['SVY-03', 'Terjadwal', '3', dot_badge('Blue', 'blue')], ('Aktif', 'green')),
+                md_row(['SVY-04', 'Selesai Survey', '4', dot_badge('Cyan', 'cyan')], ('Aktif', 'green')),
+                md_row(['SVY-05', 'Laporan Terbit', '5', dot_badge('Green', 'green')], ('Aktif', 'green')),
+            ]),
+            ('qtn-status', 'Quotation Status', ['KODE', 'NAMA STATUS', 'URUTAN', 'WARNA', 'STATUS', 'AKSI'], [
+                md_row(['QTN-01', 'Draft', '1', dot_badge('Slate', 'slate')], ('Aktif', 'green')),
+                md_row(['QTN-02', 'Dikirim ke Mitra', '2', dot_badge('Blue', 'blue')], ('Aktif', 'green')),
+                md_row(['QTN-03', 'Revisi', '3', dot_badge('Amber', 'amber')], ('Aktif', 'green')),
+                md_row(['QTN-04', 'Disetujui', '4', dot_badge('Green', 'green')], ('Aktif', 'green')),
+                md_row(['QTN-05', 'Ditolak', '5', dot_badge('Merah', 'red')], ('Aktif', 'green')),
+            ]),
+        ]),
+        ('DOKUMEN', [
+            ('doc-tpl', 'Document Template', ['KODE', 'NAMA TEMPLATE', 'TIPE DOKUMEN', 'TERAKHIR DIUBAH', 'STATUS', 'AKSI'], [
+                md_row(['DOC-SPK', 'Surat Perintah Kerja', 'PDF', '12 Agu 2024'], ('Aktif', 'green')),
+                md_row(['DOC-BAST', 'Berita Acara Serah Terima', 'PDF', '30 Jul 2024'], ('Aktif', 'green')),
+                md_row(['DOC-QUO', 'Template Quotation', 'PDF', '01 Sep 2024'], ('Aktif', 'green')),
+                md_row(['DOC-CONT', 'Template Kontrak Kerja Sama', 'DOCX', '15 Jun 2024'], ('Nonaktif', 'slate')),
+            ]),
+            ('ntf-tpl', 'Notification Template', ['KODE', 'NAMA TEMPLATE', 'CHANNEL', 'TRIGGER EVENT', 'STATUS', 'AKSI'], [
+                md_row(['NTF-WOASGN', 'Work Order Ditugaskan', 'Email + Push', 'WO baru ditugaskan ke mitra'], ('Aktif', 'green')),
+                md_row(['NTF-SVYREQ', 'Permintaan Jadwal Survey', 'Email', 'Survey diajukan ke mitra'], ('Aktif', 'green')),
+                md_row(['NTF-QTNAPRV', 'Quotation Disetujui', 'Push', 'Quotation disetujui admin'], ('Aktif', 'green')),
+                md_row(['NTF-PRGRPT', 'Reminder Update Progress', 'Email + SMS', 'H-1 sebelum deadline progress'], ('Nonaktif', 'slate')),
+            ]),
+        ]),
+        ('HAK AKSES', [
+            ('role', 'Role', ['KODE', 'NAMA ROLE', 'JUMLAH USER', 'HAK AKSES', 'STATUS', 'AKSI'], [
+                md_row(['ROLE-ADM', 'Admin ICON', '2', 'Full access &ndash; semua modul'], ('Aktif', 'green')),
+                md_row(['ROLE-OPS', 'ICONGreen Operasional', '3', 'Work Order, Survey, Quotation, Project, Billing'], ('Aktif', 'green')),
+                md_row(['ROLE-MTR', 'Mitra EPC', '3', 'Opportunities, Survey, Quotation, Project'], ('Aktif', 'green')),
+            ]),
+        ]),
+    ]
+
+    nav_html = ''
+    panels_html = ''
+    first = True
+    for label, items in sections:
+        nav_html += f'<div class="md-nav__label">{label}</div>'
+        for key, name, headers, rows in items:
+            nav_html += f'<a href="#" class="{"is-active" if first else ""}" data-tab="{key}">{name}</a>'
+            panels_html += md_panel(key, group, name, headers, rows, active=first)
+            first = False
 
     content = f'''      <div class="page-head"><h1 class="h1">Master Data</h1><p class="sub">Kelola data referensi dan konfigurasi sistem</p></div>
       <div class="md-layout">
-        <nav class="md-nav">{nav_html}</nav>
-        <div class="card" style="padding:0">
-          <div class="flex justify-between items-center" style="padding:20px 20px 0">
-            <h3 class="h3">Customer Segment</h3>
-            <button class="btn btn--primary btn--sm">{icon('+',12)} Tambah Data</button>
-          </div>
-          <div class="mt-16">{table}</div>
-        </div>
+        <nav class="md-nav" data-tabs="{group}">{nav_html}</nav>
+        {panels_html}
       </div>'''
     write('master-data.html', page('admin', 'master-data.html', 'Master Data', 'Master Data', content))
 
