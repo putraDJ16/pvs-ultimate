@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Management &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">ADMINISTRASI</div><a class="sidebar__item is-active" href="users.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">👥</span><span>User Management</span></a><a class="sidebar__item" href="partners.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏢</span><span>Partner Management</span></a><a class="sidebar__item" href="master-data.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🗄</span><span>Master Data</span></a><a class="sidebar__item" href="audit-log.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📋</span><span>Audit Log</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+    <div><div class="name">Budi Santoso</div><div class="role">Admin ICON</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">User Management</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <div class="page-head-row">
+        <div><h1 class="h1">User Management</h1><p class="sub mt-4">8 pengguna terdaftar dalam sistem</p></div>
+        <button class="btn btn--primary"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">+</span> Tambah User</button>
+      </div>
+      <div class="filterbar">
+        <div class="search"><span class="ic" style="font-size:15px;line-height:1;display:inline-flex">🔍</span><input class="input" placeholder="Cari nama atau email..."></div>
+        <select class="select select--sm"><option>Semua Role</option></select>
+      </div>
+      <div class="card" style="padding:0">
+        <table class="tbl" style="margin:0">
+          <thead><tr><th style="padding-left:20px">NAMA</th><th>EMAIL</th><th>PERUSAHAAN</th><th>ROLE</th><th>STATUS</th><th>LAST LOGIN</th><th style="padding-right:20px">AKSI</th></tr></thead>
+          <tbody><tr>
+          <td><div class="flex items-center gap-12"><span class="avatar-sm" style="background:#F3E8FF;color:#7C3AED">B</span><div><div class="strong">Budi Santoso</div><div class="sub">USR-001</div></div></div></td>
+          <td>budi.santoso@icon.co.id</td>
+          <td>PT ICON+</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td><span class="badge badge--green"><span class="dot"></span>Aktif</span></td>
+          <td>2024-09-11 08:32</td>
+          <td><a href="user-detail.html" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></td>
+        </tr><tr>
+          <td><div class="flex items-center gap-12"><span class="avatar-sm" style="background:#DCFCE7;color:#15803D">R</span><div><div class="strong">Rina Kusumawati</div><div class="sub">USR-002</div></div></div></td>
+          <td>rina.k@icongreen.co.id</td>
+          <td>PT ICONGreen</td>
+          <td><span class="badge badge--green">ICONGreen</span></td>
+          <td><span class="badge badge--green"><span class="dot"></span>Aktif</span></td>
+          <td>2024-09-11 09:15</td>
+          <td><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></td>
+        </tr><tr>
+          <td><div class="flex items-center gap-12"><span class="avatar-sm" style="background:#DCFCE7;color:#15803D">A</span><div><div class="strong">Agus Pratama</div><div class="sub">USR-003</div></div></div></td>
+          <td>agus.p@icongreen.co.id</td>
+          <td>PT ICONGreen</td>
+          <td><span class="badge badge--green">ICONGreen</span></td>
+          <td><span class="badge badge--green"><span class="dot"></span>Aktif</span></td>
+          <td>2024-09-10 16:44</td>
+          <td><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></td>
+        </tr><tr>
+          <td><div class="flex items-center gap-12"><span class="avatar-sm" style="background:#CFFAFE;color:#0E7490">D</span><div><div class="strong">Dewi Lestari</div><div class="sub">USR-004</div></div></div></td>
+          <td>dewi.l@alphasolar.co.id</td>
+          <td>PT Alpha Solar Energi</td>
+          <td><span class="badge badge--cyan">Mitra</span></td>
+          <td><span class="badge badge--green"><span class="dot"></span>Aktif</span></td>
+          <td>2024-09-11 07:58</td>
+          <td><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></td>
+        </tr><tr>
+          <td><div class="flex items-center gap-12"><span class="avatar-sm" style="background:#CFFAFE;color:#0E7490">H</span><div><div class="strong">Hendra Wijaya</div><div class="sub">USR-005</div></div></div></td>
+          <td>hendra@betaepc.co.id</td>
+          <td>PT Beta EPC Indonesia</td>
+          <td><span class="badge badge--cyan">Mitra</span></td>
+          <td><span class="badge badge--green"><span class="dot"></span>Aktif</span></td>
+          <td>2024-09-09 14:20</td>
+          <td><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></td>
+        </tr><tr>
+          <td><div class="flex items-center gap-12"><span class="avatar-sm" style="background:#DCFCE7;color:#15803D">S</span><div><div class="strong">Sari Indah</div><div class="sub">USR-006</div></div></div></td>
+          <td>sari.indah@icongreen.co.id</td>
+          <td>PT ICONGreen</td>
+          <td><span class="badge badge--green">ICONGreen</span></td>
+          <td><span class="badge badge--red"><span class="dot"></span>Nonaktif</span></td>
+          <td>2024-08-01 10:00</td>
+          <td><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></td>
+        </tr><tr>
+          <td><div class="flex items-center gap-12"><span class="avatar-sm" style="background:#CFFAFE;color:#0E7490">B</span><div><div class="strong">Bambang Nugroho</div><div class="sub">USR-007</div></div></div></td>
+          <td>bambang@gammasolar.co.id</td>
+          <td>PT Gamma Solar</td>
+          <td><span class="badge badge--cyan">Mitra</span></td>
+          <td><span class="badge badge--blue"><span class="dot"></span>Pending</span></td>
+          <td>-</td>
+          <td><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></td>
+        </tr><tr>
+          <td><div class="flex items-center gap-12"><span class="avatar-sm" style="background:#F3E8FF;color:#7C3AED">F</span><div><div class="strong">Fitri Handayani</div><div class="sub">USR-008</div></div></div></td>
+          <td>fitri@icon.co.id</td>
+          <td>PT ICON+</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td><span class="badge badge--green"><span class="dot"></span>Aktif</span></td>
+          <td>2024-09-10 11:30</td>
+          <td><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></td>
+        </tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Admin &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item is-active" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">ADMINISTRASI</div><a class="sidebar__item" href="users.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">👥</span><span>User Management</span></a><a class="sidebar__item" href="partners.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏢</span><span>Partner Management</span></a><a class="sidebar__item" href="master-data.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🗄</span><span>Master Data</span></a><a class="sidebar__item" href="audit-log.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📋</span><span>Audit Log</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+    <div><div class="name">Budi Santoso</div><div class="role">Admin ICON</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">Dashboard</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <div class="page-head"><h1 class="h1">Dashboard Admin</h1><p class="sub">Ringkasan administrasi sistem PV Solution &middot; Kamis, 11 September 2024</p></div>
+      <div class="kpi-row">
+      <div class="kpi">
+      <div><div class="k">Total User</div><div class="n">8</div></div>
+      <div class="kpi__icon kpi__icon--purple"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">👥</span></div>
+    </div>
+      <div class="kpi">
+      <div><div class="k">Active User</div><div class="n">6</div><div class="d ">2 non-aktif</div></div>
+      <div class="kpi__icon kpi__icon--green"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">✅</span></div>
+    </div>
+      <div class="kpi">
+      <div><div class="k">Total Mitra</div><div class="n">6</div></div>
+      <div class="kpi__icon kpi__icon--cyan"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🏢</span></div>
+    </div>
+      <div class="kpi">
+      <div><div class="k">Menunggu Verifikasi</div><div class="n">2</div><div class="d ">Perlu tindakan</div></div>
+      <div class="kpi__icon kpi__icon--amber"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">⏳</span></div>
+    </div>
+    </div>
+      <div class="grid-2 mt-24"><div class="card"><div class="card__head"><h3 class="h3">User Management</h3><span class="sub">Distribusi Role</span></div><div class="flex" style="gap:24px;margin-bottom:16px">
+          <div><div style="font:700 26px var(--font-head);color:#6B7280">8</div><div class="sub">Total</div></div>
+          <div><div style="font:700 26px var(--font-head);color:var(--green-600)">6</div><div class="sub">Aktif</div></div>
+          <div><div style="font:700 26px var(--font-head);color:var(--red-600)">1</div><div class="sub">Nonaktif</div></div>
+          <div><div style="font:700 26px var(--font-head);color:var(--blue-600)">1</div><div class="sub">Pending</div></div>
+        </div>
+        <div style="border-top:1px solid var(--slate-200);padding-top:14px" class="role-list">
+          <div class="role-list__row"><span class="role-list__label">Admin ICON</span><span class="role-list__bar"><div class="pbar"><span style="width:25%;background:#7C3AED"></span></div></span><span class="role-list__num" style="color:#7C3AED">2</span></div>
+          <div class="role-list__row"><span class="role-list__label">ICONGreen</span><span class="role-list__bar"><div class="pbar"><span style="width:38%;background:var(--green-600)"></span></div></span><span class="role-list__num" style="color:var(--green-600)">3</span></div>
+          <div class="role-list__row"><span class="role-list__label">Mitra</span><span class="role-list__bar"><div class="pbar"><span style="width:38%;background:#0891B2"></span></div></span><span class="role-list__num" style="color:#0891B2">3</span></div>
+        </div></div><div class="card"><div class="card__head"><h3 class="h3">Partner Management</h3></div><div class="flex" style="gap:24px;margin-bottom:16px">
+          <div><div style="font:700 26px var(--font-head);color:#6B7280">6</div><div class="sub">Registered</div></div>
+          <div><div style="font:700 26px var(--font-head);color:var(--green-600)">3</div><div class="sub">Verified</div></div>
+          <div><div style="font:700 26px var(--font-head);color:var(--amber-600)">2</div><div class="sub">Pending</div></div>
+          <div><div style="font:700 26px var(--font-head);color:var(--red-600)">1</div><div class="sub">Suspended</div></div>
+        </div>
+        <div class="muted" style="font:700 11px var(--font-head);letter-spacing:.4px;text-transform:uppercase;border-top:1px solid var(--slate-200);padding-top:14px;margin-bottom:10px">Menunggu Verifikasi</div>
+        <div class="flex justify-between items-center" style="padding:8px 0;border-bottom:1px solid var(--slate-100)">
+          <div><div style="font:600 13px var(--font-head)">PT Gamma Solar</div><div class="sub">PV Developer &middot; Bandung</div></div>
+          <span class="badge badge--amber">Menunggu Verifikasi</span>
+        </div>
+        <div class="flex justify-between items-center" style="padding:8px 0">
+          <div><div style="font:600 13px var(--font-head)">PT Delta Energi Nusantara</div><div class="sub">Vendor &middot; Medan</div></div>
+          <span class="badge badge--amber">Menunggu Verifikasi</span>
+        </div></div></div>
+      <div class="mt-24"><div class="card"><div class="card__head"><h3 class="h3">Recent Activity</h3></div><div class="mt-16"><div class="timeline__item">
+          <div class="timeline__dot" style="background:#DCFCE7"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">✓</span></div>
+          <div class="timeline__body"><div class="t">Memverifikasi Mitra PT Alpha Solar Energi</div><div class="d">Admin Budi &middot; Hari ini, 09:45</div></div>
+        </div><div class="timeline__item">
+          <div class="timeline__dot" style="background:#DBEAFE"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">+</span></div>
+          <div class="timeline__body"><div class="t">Membuat user baru: Bambang Nugroho (Mitra)</div><div class="d">Admin Budi &middot; Hari ini, 09:12</div></div>
+        </div><div class="timeline__item">
+          <div class="timeline__dot" style="background:#CFFAFE"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">📍</span></div>
+          <div class="timeline__body"><div class="t">WO-2024-0047 &ndash; Mengajukan jadwal survey ke Alpha Solar</div><div class="d">Rina Kusumawati &middot; Hari ini, 08:55</div></div>
+        </div><div class="timeline__item">
+          <div class="timeline__dot" style="background:#FFF5F5"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">✕</span></div>
+          <div class="timeline__body"><div class="t">Menonaktifkan user Sari Indah</div><div class="d">Admin Fitri &middot; Kemarin, 16:30</div></div>
+        </div><div class="timeline__item">
+          <div class="timeline__dot" style="background:#FEF3C7"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">↑</span></div>
+          <div class="timeline__body"><div class="t">WO-2024-0046 &ndash; Progress proyek RSUD diperbarui: 42%</div><div class="d">Agus Pratama &middot; Kemarin, 15:44</div></div>
+        </div><div class="timeline__item">
+          <div class="timeline__dot" style="background:#F3E8FF"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⚙</span></div>
+          <div class="timeline__body"><div class="t">Master Data Project Type diperbarui</div><div class="d">Admin Fitri &middot; Kemarin, 14:22</div></div>
+        </div></div></div></div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

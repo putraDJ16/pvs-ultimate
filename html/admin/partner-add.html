@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tambah Mitra Baru &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">ADMINISTRASI</div><a class="sidebar__item" href="users.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">👥</span><span>User Management</span></a><a class="sidebar__item is-active" href="partners.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏢</span><span>Partner Management</span></a><a class="sidebar__item" href="master-data.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🗄</span><span>Master Data</span></a><a class="sidebar__item" href="audit-log.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📋</span><span>Audit Log</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+    <div><div class="name">Budi Santoso</div><div class="role">Admin ICON</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">Partner Management</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <div class="page-head-row">
+        <div>
+          <a class="back-link" href="partners.html" style="margin-bottom:8px"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">←</span> Kembali</a>
+          <h1 class="h1">Tambah Mitra Baru</h1><p class="sub mt-4">Daftarkan mitra / EPC / PV Developer baru ke sistem</p>
+        </div>
+        <div class="flex gap-8"><button class="btn btn--outline">Batal</button><button class="btn btn--primary">Simpan &amp; Kirim untuk Verifikasi</button></div>
+      </div>
+      <div class="tabs" data-tabs="padd">
+        <a href="#" class="tab is-active" data-tab="profil">Profil Perusahaan</a>
+        <a href="#" class="tab" data-tab="dok">Dokumen</a>
+      </div>
+      <div data-tab-panel="profil" data-tabs-for="padd"><div class="grid-2"><div class="card"><div class="card__head"><h3 class="h3">Identitas Perusahaan</h3></div>
+        <div class="field"><label class="field__label">Nama Perusahaan <span class="req">*</span></label><input class="input" value="PT Contoh Energi Nusantara"></div>
+        <div class="field"><label class="field__label">NPWP <span class="req">*</span></label><input class="input" placeholder="XX.XXX.XXX.X-XXX.000"></div>
+        <div class="field"><label class="field__label">Alamat Lengkap <span class="req">*</span></label><input class="input" placeholder="Jl. Contoh No. 1, Kota"></div>
+        <div class="field"><label class="field__label">Website</label><input class="input" placeholder="www.contoh.co.id"></div>
+        <div class="row-2">
+          <div class="field"><label class="field__label">Tahun Berdiri <span class="req">*</span></label><input class="input" placeholder="2015"></div>
+          <div class="field" style="margin-bottom:0"><label class="field__label">Jumlah Karyawan <span class="req">*</span></label><input class="input" placeholder="50"></div>
+        </div></div><div class="card"><div class="card__head"><h3 class="h3">Klasifikasi</h3></div>
+        <div class="field"><label class="field__label">Kategori Mitra <span class="req">*</span></label><select class="select"><option>Pilih kategori...</option></select></div>
+        <div class="field"><label class="field__label">Lokasi / Kota <span class="req">*</span></label><input class="input" placeholder="Jakarta Selatan"></div>
+        <div class="field"><label class="field__label">Provinsi <span class="req">*</span></label><select class="select"><option>Pilih provinsi...</option></select></div>
+        <div class="field" style="margin-bottom:0"><label class="field__label">Deskripsi Singkat</label><textarea class="input" rows="3" placeholder="Deskripsi singkat tentang perusahaan dan layanan utama..."></textarea></div></div></div></div>
+      <div data-tab-panel="dok" data-tabs-for="padd" hidden><div class="alert alert--info mt-16" style="margin-bottom:18px"><span class="ic" style="font-size:16px;line-height:1;display:inline-flex">📎</span><span>Upload dokumen legalitas dalam format PDF. Maksimal 10 MB per file.</span></div>
+      <div class="card"><div class="card__head"><h3 class="h3">Dokumen Wajib</h3></div><div class="grid-2">
+        <div><div style="font:600 13px var(--font-head);margin-bottom:10px">Portofolio</div><div class="upload-box"><span class="ic" style="font-size:22px;line-height:1;display:inline-flex">📄</span><div>Upload PDF</div></div></div>
+        <div>
+          <div style="font:600 13px var(--font-head);margin-bottom:10px">NPWP Perusahaan <span class="req">*</span></div>
+          <div class="field"><label class="field__label" style="font-weight:400;color:var(--slate-500)">Nomor NPWP</label><input class="input" placeholder="Nomor NPWP"></div>
+          <div class="field"><label class="field__label" style="font-weight:400;color:var(--slate-500)">Masa Berlaku</label><input class="input"></div>
+          <div class="upload-box"><span class="ic" style="font-size:22px;line-height:1;display:inline-flex">📄</span><div>Upload PDF</div></div>
+        </div>
+      </div></div>
+      <div class="card"><div class="card__head"><h3 class="h3">Sertifikasi (Opsional)</h3></div><div style="max-width:500px"><div style="font:600 13px var(--font-head);margin-bottom:10px">Sertifikasi Lainnya</div>
+        <div class="field"><input class="input" placeholder="Nama &amp; Nomor"></div>
+        <div class="field"><input class="input"></div>
+        <div class="upload-box"><span class="ic" style="font-size:22px;line-height:1;display:inline-flex">📄</span><div>Upload Sertifikat</div></div>
+      </div></div></div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

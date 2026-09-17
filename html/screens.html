@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All Screens &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  body { background: var(--page-bg); }
+  .index-wrap { max-width: 1200px; margin: 0 auto; padding: 48px 24px 80px; }
+  .index-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .index-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--sidebar-bg); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .index-title { font: 700 15px var(--font-head); color: var(--slate-900); }
+  .index-tag { font: 400 13px var(--font-body); color: var(--slate-500); }
+  .index-h1 { font: 700 32px var(--font-head); color: var(--slate-900); margin: 28px 0 6px; }
+  .index-lead { font: 400 14px var(--font-body); color: var(--slate-500); margin-bottom: 40px; }
+  .index-group { margin-bottom: 40px; }
+  .index-group__head { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .index-role-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; font-size: 14px; color: #fff; }
+  .index-group h2 { font: 700 19px var(--font-head); color: var(--slate-900); }
+  .index-group p { font: 400 13px var(--font-body); color: var(--slate-500); margin: 4px 0 18px; }
+  .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .index-card { display: block; background: #fff; border: 1px solid var(--slate-200); border-radius: var(--r-lg); padding: 16px 18px; text-decoration: none; transition: border-color .15s, transform .15s; }
+  .index-card:hover { border-color: var(--brand); transform: translateY(-1px); }
+  .index-card .t { font: 700 14px var(--font-head); color: var(--slate-900); margin-bottom: 3px; }
+  .index-card .d { font: 400 12.5px var(--font-body); color: var(--slate-500); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="index-wrap">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;font:600 13px var(--font-head);color:var(--slate-500);text-decoration:none;margin-bottom:16px">&larr; Kembali ke Login</a>
+  <div class="index-head">
+    <span class="index-mark">☀</span>
+    <div><div class="index-title">PV Solution</div><div class="index-tag">PLTS Management Platform</div></div>
+  </div>
+  <h1 class="index-h1">All Screens</h1>
+  <p class="index-lead">Hasil konversi Figma &ldquo;PV Solution&rdquo; ke HTML + CSS statis &middot; 33 layar di 3 portal (Admin, ICONGreen/Ops, Mitra).</p>
+
+  <section class="index-group">
+    <div class="index-group__head"><span class="index-role-badge" style="background:#38BDF8">A</span><h2>Admin Portal</h2></div>
+    <p>Tampilan untuk Admin ICON (Budi Santoso) &middot; kelola user, mitra, master data &amp; audit log</p>
+    <div class="index-grid">
+      <a class="index-card" href="admin/dashboard.html"><div class="t">Dashboard</div><div class="d">KPI ringkas &amp; aktivitas sistem</div></a>
+      <a class="index-card" href="admin/users.html"><div class="t">User Management</div><div class="d">Daftar seluruh pengguna platform</div></a>
+      <a class="index-card" href="admin/user-detail.html"><div class="t">User Detail</div><div class="d">Detail &amp; riwayat aktivitas user</div></a>
+      <a class="index-card" href="admin/partners.html"><div class="t">Partner Management</div><div class="d">Daftar mitra EPC terdaftar</div></a>
+      <a class="index-card" href="admin/partner-add.html"><div class="t">Tambah Mitra</div><div class="d">Form pendaftaran mitra baru</div></a>
+      <a class="index-card" href="admin/master-data.html"><div class="t">Master Data</div><div class="d">Konfigurasi data referensi sistem</div></a>
+      <a class="index-card" href="admin/audit-log.html"><div class="t">Audit Log</div><div class="d">Jejak aktivitas seluruh pengguna</div></a>
+    </div>
+  </section>
+
+  <section class="index-group">
+    <div class="index-group__head"><span class="index-role-badge" style="background:#0EA5E9">I</span><h2>ICONGreen (Ops) Portal</h2></div>
+    <p>Tampilan untuk tim operasional ICONGreen (Rina Kusumawati) &middot; kelola WO, survey, quotation &amp; proyek</p>
+    <div class="index-grid">
+      <a class="index-card" href="ops/dashboard.html"><div class="t">Dashboard</div><div class="d">WO perlu tindakan &amp; aktivitas terbaru</div></a>
+      <a class="index-card" href="ops/executive-dashboard.html"><div class="t">Executive Dashboard</div><div class="d">Grafik kapasitas &amp; nilai proyek bulanan</div></a>
+      <a class="index-card" href="ops/work-orders.html"><div class="t">Work Order</div><div class="d">Daftar seluruh WO</div></a>
+      <a class="index-card" href="ops/wo-detail.html"><div class="t">Work Order Detail</div><div class="d">Stepper 7 tahap + tab detail</div></a>
+      <a class="index-card" href="ops/surveys.html"><div class="t">Survey</div><div class="d">Negosiasi jadwal survey dengan mitra</div></a>
+      <a class="index-card" href="ops/survey-detail.html"><div class="t">Survey Detail</div><div class="d">Alur negosiasi tanggal survey</div></a>
+      <a class="index-card" href="ops/quotations.html"><div class="t">Quotation</div><div class="d">Daftar penawaran dari mitra</div></a>
+      <a class="index-card" href="ops/quotation-detail.html"><div class="t">Quotation Detail</div><div class="d">Technical proposal &amp; ringkasan BOQ</div></a>
+      <a class="index-card" href="ops/projects.html"><div class="t">Projects</div><div class="d">Progress vs plan seluruh proyek</div></a>
+      <a class="index-card" href="ops/project-detail.html"><div class="t">Project Detail</div><div class="d">Overview + tab progress/S-Curve/dokumen</div></a>
+      <a class="index-card" href="ops/partners.html"><div class="t">Partner Directory</div><div class="d">Direktori mitra EPC dengan rating</div></a>
+      <a class="index-card" href="ops/partner-detail.html"><div class="t">Partner Detail</div><div class="d">Profil &amp; statistik mitra</div></a>
+      <a class="index-card" href="ops/billing.html"><div class="t">Billing</div><div class="d">Invoice &amp; pembayaran per proyek</div></a>
+    </div>
+  </section>
+
+  <section class="index-group">
+    <div class="index-group__head"><span class="index-role-badge" style="background:#16A34A">M</span><h2>Mitra Portal</h2></div>
+    <p>Tampilan untuk mitra EPC (Dewi Lestari, PT Alpha Solar Energi) &middot; opportunities, survey, quotation &amp; proyek</p>
+    <div class="index-grid">
+      <a class="index-card" href="mitra/dashboard.html"><div class="t">Dashboard</div><div class="d">Action required &amp; ringkasan proyek</div></a>
+      <a class="index-card" href="mitra/opportunities.html"><div class="t">Opportunities</div><div class="d">Peluang WO &amp; undangan dari ICONGreen</div></a>
+      <a class="index-card" href="mitra/surveys.html"><div class="t">Survey</div><div class="d">Daftar negosiasi jadwal survey</div></a>
+      <a class="index-card" href="mitra/survey-negotiation.html"><div class="t">Survey &ndash; Negosiasi</div><div class="d">Stepper 6 tahap + usulkan tanggal</div></a>
+      <a class="index-card" href="mitra/survey-report.html"><div class="t">Survey &ndash; Laporan Hasil</div><div class="d">Estimasi teknis, biaya &amp; rating otomatis</div></a>
+      <a class="index-card" href="mitra/quotations.html"><div class="t">Quotation</div><div class="d">Daftar penawaran yang diajukan</div></a>
+      <a class="index-card" href="mitra/quotation-form.html"><div class="t">Buat Quotation</div><div class="d">Technical Proposal &amp; Bill of Quantity</div></a>
+      <a class="index-card" href="mitra/projects.html"><div class="t">My Projects</div><div class="d">Proyek yang ditugaskan ke mitra</div></a>
+      <a class="index-card" href="mitra/project-detail.html"><div class="t">Project Detail</div><div class="d">Overview + tab progress/dokumen/issues</div></a>
+      <a class="index-card" href="mitra/update-progress.html"><div class="t">Update Progress</div><div class="d">Input progress per item Engineering/Procurement/Construction</div></a>
+      <a class="index-card" href="mitra/rating.html"><div class="t">Rating Proyek</div><div class="d">Daftar proyek untuk dirating</div></a>
+      <a class="index-card" href="mitra/rating-form.html"><div class="t">Berikan Rating</div><div class="d">Penilaian 5 kriteria + komentar</div></a>
+      <a class="index-card" href="mitra/company-profile.html"><div class="t">Company Profile</div><div class="d">Profil perusahaan mitra</div></a>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

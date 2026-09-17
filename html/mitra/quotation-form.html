@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buat Quotation &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">BISNIS</div><a class="sidebar__item" href="opportunities.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🎯</span><span>Opportunities</span></a><a class="sidebar__item" href="surveys.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📍</span><span>Survey</span></a><a class="sidebar__item is-active" href="quotations.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">💼</span><span>Quotation</span></a><a class="sidebar__item" href="projects.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏗</span><span>My Projects</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">ADMINISTRASI</div><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📄</span><span>Documents</span></a><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">💰</span><span>Invoice</span></a><a class="sidebar__item" href="rating.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⭐</span><span>Rating Proyek</span></a><a class="sidebar__item" href="company-profile.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏢</span><span>Company Profile</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">LAINNYA</div><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🔔</span><span>Notifications</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">M</span>
+    <div><div class="name">Dewi Lestari</div><div class="role">Mitra</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">Quotation</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">M</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <a class="back-link" href="quotations.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">←</span> Kembali</a>
+      <div class="page-head-row"><div><h1 class="h1">Buat Quotation</h1><p class="sub mt-4">WO-2024-0045 &ndash; PT Astra International &middot; 750 kWp</p></div>
+        <div class="flex gap-8"><button class="btn btn--outline">Simpan Draft</button><button class="btn btn--primary">Submit Quotation</button></div></div>
+      <div class="tabs" data-tabs="quo"><a href="#" class="tab is-active" data-tab="t0">Technical Proposal</a><a href="#" class="tab" data-tab="t1">Bill of Quantity</a></div>
+      <div data-tab-panel="t0" data-tabs-for="quo"><div class="grid-2"><div class="card"><div class="muted" style="font:700 11px var(--font-head);letter-spacing:.4px;text-transform:uppercase;margin-bottom:16px">Technical Proposal</div>
+      <div class="flex-col gap-16">
+        <div><label class="sub" style="display:block;margin-bottom:6px">Kapasitas</label><input class="input" value="750 kWp"></div>
+        <div><label class="sub" style="display:block;margin-bottom:6px">Panel Solar</label><input class="input" value="Tier 1 Monocrystalline 550Wp"></div>
+        <div><label class="sub" style="display:block;margin-bottom:6px">Jumlah Panel</label><input class="input" value="1.364 pcs"></div>
+        <div><label class="sub" style="display:block;margin-bottom:6px">Inverter</label><input class="input" value="String Inverter 100kW &ndash; 3 unit"></div>
+        <div><label class="sub" style="display:block;margin-bottom:6px">Mounting System</label><input class="input" value="Ground Mounting Galvanized Steel"></div>
+      </div></div><div class="card"><div class="muted" style="font:700 11px var(--font-head);letter-spacing:.4px;text-transform:uppercase;margin-bottom:16px">Rencana Proyek</div>
+      <div class="flex-col gap-16">
+        <div><label class="sub" style="display:block;margin-bottom:6px">Durasi Proyek</label><input class="input" value="120 hari kalender"></div>
+        <div><label class="sub" style="display:block;margin-bottom:6px">Validity Penawaran</label><input class="input" value="30 hari"></div>
+        <div><label class="sub" style="display:block;margin-bottom:6px">Garansi Panel</label><input class="input" value="25 tahun output"></div>
+        <div><label class="sub" style="display:block;margin-bottom:6px">Garansi Inverter</label><input class="input" value="5 tahun"></div>
+        <div><label class="sub" style="display:block;margin-bottom:6px">Garansi Instalasi</label><input class="input" value="1 tahun"></div>
+        <div><label class="sub" style="display:block;margin-bottom:6px">Catatan Tambahan</label><textarea class="input" rows="3" placeholder="Catatan atau syarat khusus..."></textarea></div>
+      </div></div></div></div>
+      <div data-tab-panel="t1" data-tabs-for="quo" hidden><div class="card"><div class="card__head"><h3 class="h3">Bill of Quantity</h3></div><table class="tbl" style="margin:0">
+      <thead><tr><th style="padding-left:20px">ITEM</th><th>SATUAN</th><th>QTY</th><th>HARGA SATUAN</th><th style="padding-right:20px">TOTAL</th></tr></thead>
+      <tbody><tr><td style="padding-left:20px">Solar Panel Monocrystalline 550Wp</td><td>pcs</td><td>1.364</td><td class="mono">Rp 2.850.000</td><td class="mono strong" style="padding-right:20px">Rp 3.887.400.000</td></tr><tr><td style="padding-left:20px">String Inverter 100kW</td><td>unit</td><td>3</td><td class="mono">Rp 185.000.000</td><td class="mono strong" style="padding-right:20px">Rp 555.000.000</td></tr><tr><td style="padding-left:20px">Mounting System Ground</td><td>set</td><td>1</td><td class="mono">Rp 620.000.000</td><td class="mono strong" style="padding-right:20px">Rp 620.000.000</td></tr><tr><td style="padding-left:20px">Kabel &amp; Aksesoris</td><td>lot</td><td>1</td><td class="mono">Rp 287.000.000</td><td class="mono strong" style="padding-right:20px">Rp 287.000.000</td></tr><tr><td style="padding-left:20px">Jasa Instalasi &amp; Engineering</td><td>lot</td><td>1</td><td class="mono">Rp 399.800.000</td><td class="mono strong" style="padding-right:20px">Rp 399.800.000</td></tr></tbody></table>
+      <div style="padding:14px 20px;border-top:1px solid var(--slate-200)"><button class="btn btn--outline btn--sm">+ Tambah Item</button></div></div><div class="mt-24"><div class="stage-banner" style="grid-template-columns:1fr auto;align-items:center">
+      <div><div class="label">Total Penawaran</div><div class="val" style="font-size:24px">Rp 5.749.200.000</div></div>
+    </div></div></div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

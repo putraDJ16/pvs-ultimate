@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master Data &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">ADMINISTRASI</div><a class="sidebar__item" href="users.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">👥</span><span>User Management</span></a><a class="sidebar__item" href="partners.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏢</span><span>Partner Management</span></a><a class="sidebar__item is-active" href="master-data.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🗄</span><span>Master Data</span></a><a class="sidebar__item" href="audit-log.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📋</span><span>Audit Log</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+    <div><div class="name">Budi Santoso</div><div class="role">Admin ICON</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">Master Data</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <div class="page-head"><h1 class="h1">Master Data</h1><p class="sub">Kelola data referensi dan konfigurasi sistem</p></div>
+      <div class="md-layout">
+        <nav class="md-nav"><div class="md-nav__label">DATA REFERENSI</div><a href="#" class="is-active">Customer Segment</a><a href="#" class="">Project Type</a><a href="#" class="">Region</a><a href="#" class="">Partner Category</a><div class="md-nav__label">WORKFLOW</div><a href="#" class="">Workflow Status</a><a href="#" class="">Project Status</a><a href="#" class="">Survey Status</a><a href="#" class="">Quotation Status</a><div class="md-nav__label">DOKUMEN</div><a href="#" class="">Document Template</a><a href="#" class="">Notification Template</a><div class="md-nav__label">HAK AKSES</div><a href="#" class="">Role</a></nav>
+        <div class="card" style="padding:0">
+          <div class="flex justify-between items-center" style="padding:20px 20px 0">
+            <h3 class="h3">Customer Segment</h3>
+            <button class="btn btn--primary btn--sm"><span class="ic" style="font-size:12px;line-height:1;display:inline-flex">+</span> Tambah Data</button>
+          </div>
+          <div class="mt-16"><table class="tbl" style="margin:0">
+      <thead><tr><th style="padding-left:20px">KODE</th><th>STATUS</th><th>NAMA SEGMENT</th><th>DESKRIPSI</th><th>STATUS</th><th style="padding-right:20px">AKSI</th></tr></thead>
+      <tbody>
+        <tr><td class="mono" style="padding-left:20px">B2B-SWT</td><td>B2B Swasta</td><td>Pelanggan swasta / korporasi</td><td><span class="badge badge--green"><span class="dot"></span>Aktif</span></td><td></td><td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700);margin-right:14px">Edit</a><a href="#" style="font:600 13px var(--font-head);color:var(--slate-500)">Nonaktifkan</a></td></tr>
+        <tr><td class="mono" style="padding-left:20px">GOV-BUMN</td><td>Pemerintah/BUMN</td><td>Instansi pemerintah dan BUMN</td><td><span class="badge badge--green"><span class="dot"></span>Aktif</span></td><td></td><td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700);margin-right:14px">Edit</a><a href="#" style="font:600 13px var(--font-head);color:var(--slate-500)">Nonaktifkan</a></td></tr>
+      </tbody></table></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

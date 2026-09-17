@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partner Management &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">ADMINISTRASI</div><a class="sidebar__item" href="users.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">👥</span><span>User Management</span></a><a class="sidebar__item is-active" href="partners.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏢</span><span>Partner Management</span></a><a class="sidebar__item" href="master-data.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🗄</span><span>Master Data</span></a><a class="sidebar__item" href="audit-log.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📋</span><span>Audit Log</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+    <div><div class="name">Budi Santoso</div><div class="role">Admin ICON</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">Partner Management</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <div class="page-head-row">
+        <div><h1 class="h1">Partner Management</h1><p class="sub mt-4">6 mitra terdaftar dalam sistem</p></div>
+        <a class="btn btn--primary" href="partner-add.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">+</span> Tambah Mitra</a>
+      </div>
+      <div class="filterbar"><select class="select select--sm"><option>Semua Status</option></select></div>
+      <div class="card" style="padding:0">
+        <table class="tbl" style="margin:0">
+          <thead><tr><th style="padding-left:20px">NAMA MITRA</th><th>KATEGORI</th><th>LOKASI</th><th>STATUS VERIFIKASI</th><th>RATING</th><th>PROJECT AKTIF</th><th>LAST UPDATE</th><th style="padding-right:20px">AKSI</th></tr></thead>
+          <tbody><tr>
+          <td><div class="strong">PT Alpha Solar Energi</div><div class="sub">PTR-001</div></td>
+          <td><span class="badge badge--cyan">EPC</span></td>
+          <td>Jakarta Selatan</td>
+          <td><span class="badge badge--green"><span class="dot"></span>Terverifikasi</span></td>
+          <td style="white-space:nowrap"><span class="stars">★★★★★</span> 4.8</td>
+          <td>3</td>
+          <td>2024-09-05</td>
+          <td><div class="flex gap-8"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></div></td>
+        </tr><tr>
+          <td><div class="strong">PT Beta EPC Indonesia</div><div class="sub">PTR-002</div></td>
+          <td><span class="badge badge--cyan">EPC</span></td>
+          <td>Surabaya</td>
+          <td><span class="badge badge--green"><span class="dot"></span>Terverifikasi</span></td>
+          <td style="white-space:nowrap"><span class="stars">★★★★★</span> 4.5</td>
+          <td>2</td>
+          <td>2024-09-03</td>
+          <td><div class="flex gap-8"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></div></td>
+        </tr><tr>
+          <td><div class="strong">PT Gamma Solar</div><div class="sub">PTR-003</div></td>
+          <td><span class="badge badge--cyan">PV Developer</span></td>
+          <td>Bandung</td>
+          <td><span class="badge badge--amber"><span class="dot"></span>Menunggu Verifikasi</span></td>
+          <td style="white-space:nowrap">-</td>
+          <td>0</td>
+          <td>2024-09-08</td>
+          <td><div class="flex gap-8"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a><button class="btn btn--primary btn--sm">Verifikasi</button></div></td>
+        </tr><tr>
+          <td><div class="strong">PT Delta Energi Nusantara</div><div class="sub">PTR-004</div></td>
+          <td><span class="badge badge--cyan">Vendor</span></td>
+          <td>Medan</td>
+          <td><span class="badge badge--amber"><span class="dot"></span>Menunggu Verifikasi</span></td>
+          <td style="white-space:nowrap">-</td>
+          <td>0</td>
+          <td>2024-09-07</td>
+          <td><div class="flex gap-8"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a><button class="btn btn--primary btn--sm">Verifikasi</button></div></td>
+        </tr><tr>
+          <td><div class="strong">PT Epsilon Surya Technik</div><div class="sub">PTR-005</div></td>
+          <td><span class="badge badge--cyan">EPC</span></td>
+          <td>Semarang</td>
+          <td><span class="badge badge--red"><span class="dot"></span>Suspended</span></td>
+          <td style="white-space:nowrap"><span class="stars">★★★☆☆</span> 3.2</td>
+          <td>0</td>
+          <td>2024-07-15</td>
+          <td><div class="flex gap-8"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></div></td>
+        </tr><tr>
+          <td><div class="strong">PT Zeta Renewable</div><div class="sub">PTR-006</div></td>
+          <td><span class="badge badge--cyan">EPC</span></td>
+          <td>Bali</td>
+          <td><span class="badge badge--green"><span class="dot"></span>Terverifikasi</span></td>
+          <td style="white-space:nowrap"><span class="stars">★★★★★</span> 4.6</td>
+          <td>1</td>
+          <td>2024-09-01</td>
+          <td><div class="flex gap-8"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail</a></div></td>
+        </tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

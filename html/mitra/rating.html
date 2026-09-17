@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rating Proyek &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">BISNIS</div><a class="sidebar__item" href="opportunities.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🎯</span><span>Opportunities</span></a><a class="sidebar__item" href="surveys.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📍</span><span>Survey</span></a><a class="sidebar__item" href="quotations.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">💼</span><span>Quotation</span></a><a class="sidebar__item" href="projects.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏗</span><span>My Projects</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">ADMINISTRASI</div><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📄</span><span>Documents</span></a><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">💰</span><span>Invoice</span></a><a class="sidebar__item is-active" href="rating.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⭐</span><span>Rating Proyek</span></a><a class="sidebar__item" href="company-profile.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏢</span><span>Company Profile</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">LAINNYA</div><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🔔</span><span>Notifications</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">M</span>
+    <div><div class="name">Dewi Lestari</div><div class="role">Mitra</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">Rating Proyek</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">M</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <div class="page-head"><h1 class="h1">Rating Proyek</h1><p class="sub">Berikan penilaian untuk proyek yang telah selesai</p></div>
+      <div class="kpi-row" style="grid-auto-columns:1fr">
+      <div class="stat-box stat-box--amber"><div class="n">1</div><div class="l">Menunggu Rating</div></div>
+      <div class="stat-box stat-box--green"><div class="n">2</div><div class="l">Sudah Dirating</div></div>
+      <div class="stat-box"><div class="n">4.5 ★</div><div class="l">Rating Rata-rata</div></div>
+      <div class="stat-box"><div class="n">3</div><div class="l">Total Proyek Selesai</div></div>
+    </div>
+      <div class="tabs mt-24"><a href="#" class="tab is-active">Belum Dirating <span class="badge badge--amber" style="margin-left:6px">1</span></a><a href="#" class="tab">Sudah Dirating (2)</a></div>
+      <div class="card">
+      <div class="flex justify-between items-center">
+        <div><div class="mono strong" style="color:var(--green-700)">PRJ-2024-0016</div><span class="badge badge--amber">Belum Dirating</span>
+          <div style="font:700 17px var(--font-head);color:var(--slate-900);margin-top:6px">RSUD Dr. Soetomo</div>
+          <div class="sub mt-4">Surabaya, Jawa Timur &middot; 200 kWp &middot; Selesai: 2024-09-02</div></div>
+        <div style="text-align:right"><div style="font:700 18px var(--font-head);color:var(--green-600);margin-bottom:10px">Rp 1.35 M</div>
+          <a href="rating-form.html" class="btn btn--primary btn--sm">★ Beri Rating</a></div>
+      </div></div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

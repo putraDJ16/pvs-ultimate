@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executive Dashboard &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a><a class="sidebar__item is-active" href="executive-dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📊</span><span>Executive Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">OPERASIONAL</div><a class="sidebar__item" href="work-orders.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📋</span><span>Work Order</span></a><a class="sidebar__item" href="surveys.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📍</span><span>Survey</span></a><a class="sidebar__item" href="quotations.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">💼</span><span>Quotation</span></a><a class="sidebar__item" href="projects.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏗</span><span>Projects</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">MITRA & DOKUMEN</div><a class="sidebar__item" href="partners.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🤝</span><span>Partners</span></a><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📄</span><span>Documents</span></a><a class="sidebar__item" href="billing.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">💰</span><span>Billing</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">LAINNYA</div><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📈</span><span>Reports</span></a><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🔔</span><span>Notifications</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#34D399,#0EA5E9)">I</span>
+    <div><div class="name">Rina Kusumawati</div><div class="role">ICONGreen</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">Executive Dashboard</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#34D399,#0EA5E9)">I</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <div class="page-head"><h1 class="h1">Executive Dashboard</h1><p class="sub">Performa bisnis PV Solution &middot; September 2024</p></div>
+      <div class="kpi-row">
+      <div class="kpi">
+      <div><div class="k">Total Kapasitas Terpasang</div><div class="n">27.4 MWp</div><div class="d pos">&uarr; 18% dari bulan lalu</div></div>
+      <div class="kpi__icon kpi__icon--green"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">⚡</span></div>
+    </div>
+      <div class="kpi">
+      <div><div class="k">Total Nilai Project</div><div class="n">Rp 198.6 M</div><div class="d ">YTD 2024</div></div>
+      <div class="kpi__icon kpi__icon--blue"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">💰</span></div>
+    </div>
+      <div class="kpi">
+      <div><div class="k">Active Projects</div><div class="n">3</div><div class="d ">Sedang berjalan</div></div>
+      <div class="kpi__icon kpi__icon--cyan"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🏗</span></div>
+    </div>
+      <div class="kpi">
+      <div><div class="k">Completed Projects</div><div class="n">1</div><div class="d ">Selesai 2024</div></div>
+      <div class="kpi__icon kpi__icon--purple"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">✅</span></div>
+    </div>
+    </div><div class="grid-2 mt-24">
+      <div class="card"><div class="card__head"><h3 class="h3">Kapasitas Terpasang per Bulan (kWp)</h3></div><div class="barchart"><div class="col"><div class="bar" style="height:41%;background:var(--brand)"></div><div class="lbl">Jan</div></div><div class="col"><div class="bar" style="height:57%;background:var(--brand)"></div><div class="lbl">Feb</div></div><div class="col"><div class="bar" style="height:38%;background:var(--brand)"></div><div class="lbl">Mar</div></div><div class="col"><div class="bar" style="height:76%;background:var(--brand)"></div><div class="lbl">Apr</div></div><div class="col"><div class="bar" style="height:65%;background:var(--brand)"></div><div class="lbl">Mei</div></div><div class="col"><div class="bar" style="height:89%;background:var(--brand)"></div><div class="lbl">Jun</div></div><div class="col"><div class="bar" style="height:72%;background:var(--brand)"></div><div class="lbl">Jul</div></div><div class="col"><div class="bar" style="height:100%;background:var(--brand)"></div><div class="lbl">Agt</div></div><div class="col"><div class="bar" style="height:83%;background:var(--brand)"></div><div class="lbl">Sep</div></div></div></div>
+      <div class="card"><div class="card__head"><h3 class="h3">Nilai Proyek per Bulan (Miliar Rp)</h3></div><div class="barchart"><div class="col"><div class="bar" style="height:46%;background:var(--brand)"></div><div class="lbl">Jan</div></div><div class="col"><div class="bar" style="height:58%;background:var(--brand)"></div><div class="lbl">Feb</div></div><div class="col"><div class="bar" style="height:42%;background:var(--brand)"></div><div class="lbl">Mar</div></div><div class="col"><div class="bar" style="height:74%;background:var(--brand)"></div><div class="lbl">Apr</div></div><div class="col"><div class="bar" style="height:63%;background:var(--brand)"></div><div class="lbl">Mei</div></div><div class="col"><div class="bar" style="height:90%;background:var(--brand)"></div><div class="lbl">Jun</div></div><div class="col"><div class="bar" style="height:70%;background:var(--brand)"></div><div class="lbl">Jul</div></div><div class="col"><div class="bar" style="height:100%;background:var(--brand)"></div><div class="lbl">Agt</div></div><div class="col"><div class="bar" style="height:81%;background:var(--brand)"></div><div class="lbl">Sep</div></div></div></div>
+    </div>
+      <div class="grid-2 mt-24" style="grid-template-columns:1.6fr 1fr"><div class="card"><div class="card__head"><h3 class="h3">Project Pipeline</h3></div><table class="tbl" style="margin:0"><thead><tr><th style="padding-left:20px">WO</th><th>CUSTOMER</th><th>KAPASITAS</th><th>STAGE</th><th>STATUS</th><th style="padding-right:20px">EST. VALUE</th></tr></thead><tbody><tr><td class="mono strong" style="padding-left:20px">WO-2024-0047</td><td>PT Indofood CBP</td><td>500 kWp</td><td><span class="badge badge--cyan">Survey</span></td><td><span class="badge badge--amber"><span class="dot"></span>Need Attention</span></td><td style="padding-right:20px">Rp 3.2 M</td></tr><tr><td class="mono strong" style="padding-left:20px">WO-2024-0045</td><td>PT Astra International</td><td>1.2 MWp</td><td><span class="badge badge--cyan">Quotation</span></td><td><span class="badge badge--green"><span class="dot"></span>On Track</span></td><td style="padding-right:20px">Rp 7.2 M</td></tr><tr><td class="mono strong" style="padding-left:20px">WO-2024-0044</td><td>PLN Persero Bandung</td><td>750 kWp</td><td><span class="badge badge--cyan">Partner Selection</span></td><td><span class="badge badge--red"><span class="dot"></span>Overdue</span></td><td style="padding-right:20px">Rp 5.1 M</td></tr></tbody></table></div><div class="card"><div class="card__head"><h3 class="h3">Distribusi Project</h3></div><div style="margin-bottom:18px"><div class="flex justify-between" style="margin-bottom:6px"><span style="font:600 13px var(--font-head)">B2B Swasta</span><span class="sub">5 (62%)</span></div><div class="pbar"><span style="width:62%;background:#2563EB"></span></div></div>
+      <div style="margin-bottom:20px"><div class="flex justify-between" style="margin-bottom:6px"><span style="font:600 13px var(--font-head)">Pemerintah/BUMN</span><span class="sub">3 (38%)</span></div><div class="pbar"><span style="width:38%;background:#7C3AED"></span></div></div>
+      <div class="muted" style="font:700 11px var(--font-head);letter-spacing:.4px;text-transform:uppercase;border-top:1px solid var(--slate-200);padding-top:14px;margin-bottom:10px">By Tipe</div>
+      <div class="flex-col gap-8" style="font:400 13px var(--font-body)">
+        <div class="flex justify-between"><span>&#9679; PLTS Atap Industri</span><span class="strong">45%</span></div>
+        <div class="flex justify-between"><span>&#9679; PLTS Atap Pemerintah</span><span class="strong">25%</span></div>
+        <div class="flex justify-between"><span>&#9679; PLTS Ground Mounted</span><span class="strong">18%</span></div>
+        <div class="flex justify-between"><span>&#9679; PLTS Komunal</span><span class="strong">12%</span></div>
+      </div></div></div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

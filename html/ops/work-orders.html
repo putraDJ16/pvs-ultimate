@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work Order &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a><a class="sidebar__item" href="executive-dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📊</span><span>Executive Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">OPERASIONAL</div><a class="sidebar__item is-active" href="work-orders.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📋</span><span>Work Order</span></a><a class="sidebar__item" href="surveys.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📍</span><span>Survey</span></a><a class="sidebar__item" href="quotations.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">💼</span><span>Quotation</span></a><a class="sidebar__item" href="projects.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏗</span><span>Projects</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">MITRA & DOKUMEN</div><a class="sidebar__item" href="partners.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🤝</span><span>Partners</span></a><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📄</span><span>Documents</span></a><a class="sidebar__item" href="billing.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">💰</span><span>Billing</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">LAINNYA</div><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📈</span><span>Reports</span></a><a class="sidebar__item" href="#" onclick="return false" style="opacity:.55;cursor:default"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🔔</span><span>Notifications</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#34D399,#0EA5E9)">I</span>
+    <div><div class="name">Rina Kusumawati</div><div class="role">ICONGreen</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">Work Order</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#34D399,#0EA5E9)">I</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <div class="page-head-row"><div><h1 class="h1">Work Order</h1><p class="sub mt-4">8 WO terdaftar</p></div>
+        <button class="btn btn--primary"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">🔄</span> Sync Data P4B</button></div>
+      <div class="filterbar"><div class="search"><span class="ic" style="font-size:15px;line-height:1;display:inline-flex">🔍</span><input class="input" placeholder="Cari WO atau customer..."></div><select class="select select--sm"><option>Semua Status</option></select></div>
+      <div class="chip-row">
+        <div class="chip chip--green"><span class="num">4</span><span>On Track</span></div><div class="chip chip--amber"><span class="num">2</span><span>Need Attention</span></div><div class="chip chip--red"><span class="num">1</span><span>Overdue</span></div><div class="chip chip--slate"><span class="num">1</span><span>Completed</span></div>
+      </div>
+      <div class="card" style="padding:0"><table class="tbl" style="margin:0">
+        <thead><tr><th style="padding-left:20px">NO. WO</th><th>CUSTOMER</th><th>LOKASI</th><th>KAPASITAS</th><th>STAGE</th><th>MITRA</th><th>DUE DATE</th><th>STATUS</th><th style="padding-right:20px">AKSI</th></tr></thead>
+        <tbody><tr>
+          <td class="mono strong" style="padding-left:20px">WO-2024-0047</td>
+          <td><div class="strong">PT Indofood CBP Sukses Makmur</div><div class="sub">Bpk. Rudi Hermawan</div></td>
+          <td>Cikampek, Jawa Barat</td>
+          <td>500 kWp</td>
+          <td><span class="badge badge--cyan">Survey</span></td>
+          <td>Alpha Solar Energi</td>
+          <td style="">2024-09-20</td>
+          <td><span class="badge badge--amber"><span class="dot"></span>Need Attention</span></td>
+          <td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail &rarr;</a></td>
+        </tr><tr>
+          <td class="mono strong" style="padding-left:20px">WO-2024-0046</td>
+          <td><div class="strong">RSUD Dr. Soetomo</div><div class="sub">Ibu Retno Wulandari</div></td>
+          <td>Surabaya, Jawa Timur</td>
+          <td>200 kWp</td>
+          <td><span class="badge badge--cyan">Project</span></td>
+          <td>Beta EPC Indonesia</td>
+          <td style="">2024-12-15</td>
+          <td><span class="badge badge--green"><span class="dot"></span>On Track</span></td>
+          <td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail &rarr;</a></td>
+        </tr><tr>
+          <td class="mono strong" style="padding-left:20px">WO-2024-0045</td>
+          <td><div class="strong">PT Astra International</div><div class="sub">Bpk. Denny Sutrisno</div></td>
+          <td>Karawang, Jawa Barat</td>
+          <td>1.2 MWp</td>
+          <td><span class="badge badge--cyan">Quotation</span></td>
+          <td>Alpha Solar Energi</td>
+          <td style="">2024-09-25</td>
+          <td><span class="badge badge--green"><span class="dot"></span>On Track</span></td>
+          <td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail &rarr;</a></td>
+        </tr><tr>
+          <td class="mono strong" style="padding-left:20px">WO-2024-0044</td>
+          <td><div class="strong">PLN Persero UP3 Bandung</div><div class="sub">Bpk. Ahmad Fauzi</div></td>
+          <td>Bandung, Jawa Barat</td>
+          <td>750 kWp</td>
+          <td><span class="badge badge--cyan">Partner Selection</span></td>
+          <td>-</td>
+          <td style="color:var(--red-600);font-weight:600">2024-09-15</td>
+          <td><span class="badge badge--red"><span class="dot"></span>Overdue</span></td>
+          <td style="padding-right:20px"><a href="wo-detail.html" style="font:600 13px var(--font-head);color:var(--green-700)">Detail &rarr;</a></td>
+        </tr><tr>
+          <td class="mono strong" style="padding-left:20px">WO-2024-0043</td>
+          <td><div class="strong">PT Bank Mandiri (Persero)</div><div class="sub">Ibu Sri Wahyuni</div></td>
+          <td>Jakarta Pusat</td>
+          <td>300 kWp</td>
+          <td><span class="badge badge--cyan">BAST</span></td>
+          <td>Zeta Renewable</td>
+          <td style="">2024-09-10</td>
+          <td><span class="badge badge--green"><span class="dot"></span>On Track</span></td>
+          <td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail &rarr;</a></td>
+        </tr><tr>
+          <td class="mono strong" style="padding-left:20px">WO-2024-0042</td>
+          <td><div class="strong">PT Sinarmas Land</div><div class="sub">Bpk. Tonny Tanaka</div></td>
+          <td>Tangerang Selatan, Banten</td>
+          <td>800 kWp</td>
+          <td><span class="badge badge--cyan">Billing</span></td>
+          <td>Alpha Solar Energi</td>
+          <td style="">2024-08-30</td>
+          <td><span class="badge badge--slate"><span class="dot"></span>Completed</span></td>
+          <td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail &rarr;</a></td>
+        </tr><tr>
+          <td class="mono strong" style="padding-left:20px">WO-2024-0041</td>
+          <td><div class="strong">Universitas Indonesia</div><div class="sub">Bpk. Prof. Darmawan</div></td>
+          <td>Depok, Jawa Barat</td>
+          <td>400 kWp</td>
+          <td><span class="badge badge--cyan">Survey</span></td>
+          <td>Beta EPC Indonesia</td>
+          <td style="">2024-09-18</td>
+          <td><span class="badge badge--green"><span class="dot"></span>On Track</span></td>
+          <td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail &rarr;</a></td>
+        </tr><tr>
+          <td class="mono strong" style="padding-left:20px">WO-2024-0040</td>
+          <td><div class="strong">PT Gudang Garam</div><div class="sub">-</div></td>
+          <td>Kediri, Jawa Timur</td>
+          <td>2 MWp</td>
+          <td><span class="badge badge--cyan">WO Received</span></td>
+          <td>-</td>
+          <td style="">2024-09-30</td>
+          <td><span class="badge badge--green"><span class="dot"></span>On Track</span></td>
+          <td style="padding-right:20px"><a href="#" style="font:600 13px var(--font-head);color:var(--green-700)">Detail &rarr;</a></td>
+        </tr></tbody></table></div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

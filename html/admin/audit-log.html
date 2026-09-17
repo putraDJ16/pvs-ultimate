@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audit Log &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">ADMINISTRASI</div><a class="sidebar__item" href="users.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">👥</span><span>User Management</span></a><a class="sidebar__item" href="partners.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏢</span><span>Partner Management</span></a><a class="sidebar__item" href="master-data.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🗄</span><span>Master Data</span></a><a class="sidebar__item is-active" href="audit-log.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📋</span><span>Audit Log</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+    <div><div class="name">Budi Santoso</div><div class="role">Admin ICON</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">Audit Log</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <div class="page-head"><h1 class="h1">Audit Log</h1><p class="sub">Riwayat seluruh aktivitas administrasi sistem &middot; Read-only</p></div>
+      <div class="alert alert--warn mt-24" style="margin-bottom:18px"><span class="ic" style="font-size:16px;line-height:1;display:inline-flex">ℹ️</span><span>Audit Log bersifat <strong>read-only</strong>. Data tidak dapat diubah atau dihapus.</span></div>
+      <div class="filterbar">
+        <div class="search" style="flex:1;max-width:none"><span class="ic" style="font-size:15px;line-height:1;display:inline-flex">🔍</span><input class="input" placeholder="Cari user, aktivitas, atau objek..."></div>
+        <select class="select select--sm"><option>Semua Modul</option></select>
+        <input class="input" style="width:150px" type="text" placeholder="">
+      </div>
+      <div class="card" style="padding:0">
+        <table class="tbl" style="margin:0">
+          <thead><tr><th style="padding-left:20px">WAKTU</th><th>AKTIVITAS</th><th>USER</th><th>ROLE</th><th>MODUL</th><th style="padding-right:20px">OBJECT</th></tr></thead>
+          <tbody><tr>
+          <td class="mono" style="padding-left:20px;color:var(--slate-400);font-weight:400">2024-09-11 09:45:22</td>
+          <td><div class="flex items-center gap-12"><span class="audit-ico" style="background:#DCFCE7"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">✓</span></span><span class="strong">Mitra Diverifikasi</span></div></td>
+          <td>Budi Santoso</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td>Partner Management</td>
+          <td style="padding-right:20px">PT Alpha Solar Energi (PTR-001)</td>
+        </tr><tr>
+          <td class="mono" style="padding-left:20px;color:var(--slate-400);font-weight:400">2024-09-11 09:12:05</td>
+          <td><div class="flex items-center gap-12"><span class="audit-ico" style="background:#DBEAFE"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">+</span></span><span class="strong">User Dibuat</span></div></td>
+          <td>Budi Santoso</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td>User Management</td>
+          <td style="padding-right:20px">Bambang Nugroho (USR-007)</td>
+        </tr><tr>
+          <td class="mono" style="padding-left:20px;color:var(--slate-400);font-weight:400">2024-09-10 16:30:44</td>
+          <td><div class="flex items-center gap-12"><span class="audit-ico" style="background:#F3E8FF"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">↕</span></span><span class="strong">Role User Diubah</span></div></td>
+          <td>Fitri Handayani</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td>User Management</td>
+          <td style="padding-right:20px">Sari Indah &rarr; Nonaktif (USR-006)</td>
+        </tr><tr>
+          <td class="mono" style="padding-left:20px;color:var(--slate-400);font-weight:400">2024-09-10 14:22:11</td>
+          <td><div class="flex items-center gap-12"><span class="audit-ico" style="background:#E2E8F0"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⚙</span></span><span class="strong">Master Data Diperbarui</span></div></td>
+          <td>Fitri Handayani</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td>Master Data</td>
+          <td style="padding-right:20px">Project Type &ndash; PLTS Ground Mounted</td>
+        </tr><tr>
+          <td class="mono" style="padding-left:20px;color:var(--slate-400);font-weight:400">2024-09-10 11:05:33</td>
+          <td><div class="flex items-center gap-12"><span class="audit-ico" style="background:#DCFCE7"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">✓</span></span><span class="strong">Mitra Diverifikasi</span></div></td>
+          <td>Budi Santoso</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td>Partner Management</td>
+          <td style="padding-right:20px">PT Zeta Renewable (PTR-006)</td>
+        </tr><tr>
+          <td class="mono" style="padding-left:20px;color:var(--slate-400);font-weight:400">2024-09-09 15:44:18</td>
+          <td><div class="flex items-center gap-12"><span class="audit-ico" style="background:#FFF5F5"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">✕</span></span><span class="strong">User Dinonaktifkan</span></div></td>
+          <td>Budi Santoso</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td>User Management</td>
+          <td style="padding-right:20px">Sari Indah (USR-006)</td>
+        </tr><tr>
+          <td class="mono" style="padding-left:20px;color:var(--slate-400);font-weight:400">2024-09-09 10:02:57</td>
+          <td><div class="flex items-center gap-12"><span class="audit-ico" style="background:#FEF3C7"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">🔒</span></span><span class="strong">Data Permission Diperbarui</span></div></td>
+          <td>Fitri Handayani</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td>Master Data</td>
+          <td style="padding-right:20px">Role ICONGreen &ndash; Akses Billing</td>
+        </tr><tr>
+          <td class="mono" style="padding-left:20px;color:var(--slate-400);font-weight:400">2024-09-08 14:30:00</td>
+          <td><div class="flex items-center gap-12"><span class="audit-ico" style="background:#CFFAFE"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">🏢</span></span><span class="strong">Mitra Didaftarkan</span></div></td>
+          <td>Budi Santoso</td>
+          <td><span class="badge badge--purple">Admin ICON</span></td>
+          <td>Partner Management</td>
+          <td style="padding-right:20px">PT Gamma Solar (PTR-003)</td>
+        </tr></tbody>
+        </table>
+        <div class="flex justify-between items-center" style="padding:16px 20px">
+          <span class="sub">Menampilkan 8 dari 8 entri</span>
+          <div class="flex gap-8"><button class="btn btn--outline btn--sm">&larr; Prev</button><button class="btn btn--outline btn--sm">Next &rarr;</button></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>

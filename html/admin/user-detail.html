@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budi Santoso &middot; PV Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__mark"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">☀</span></span>
+    <div><div class="name">PV Solution</div><div class="tag">PLTS Management</div></div>
+  </div>
+  <nav class="sidebar__nav"><div class="sidebar__group"><div class="sidebar__group-label">OVERVIEW</div><a class="sidebar__item" href="dashboard.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">⊞</span><span>Dashboard</span></a></div><div class="sidebar__group"><div class="sidebar__group-label">ADMINISTRASI</div><a class="sidebar__item is-active" href="users.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">👥</span><span>User Management</span></a><a class="sidebar__item" href="partners.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🏢</span><span>Partner Management</span></a><a class="sidebar__item" href="master-data.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">🗄</span><span>Master Data</span></a><a class="sidebar__item" href="audit-log.html"><span class="ic" style="font-size:14px;line-height:1;display:inline-flex">📋</span><span>Audit Log</span></a></div></nav>
+  <div class="sidebar__foot">
+    <span class="sidebar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+    <div><div class="name">Budi Santoso</div><div class="role">Admin ICON</div></div>
+  </div>
+</aside>
+  <div class="shell-main">
+    <header class="topbar">
+    <div class="topbar__crumb"><span>PV Solution</span><span>&rsaquo;</span><span class="current">User Management</span></div>
+    <div class="topbar__right">
+      <span class="topbar__bell"><span class="ic" style="font-size:18px;line-height:1;display:inline-flex">🔔</span><span class="dot">3</span></span>
+      <span class="topbar__avatar" style="background:linear-gradient(135deg,#38BDF8,#6366F1)">A</span>
+      <a class="topbar__logout" href="../index.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">⏻</span><span>Logout</span></a>
+    </div>
+  </header>
+    <main class="content">
+      <a class="back-link" href="users.html"><span class="ic" style="font-size:13px;line-height:1;display:inline-flex">←</span> Kembali</a>
+      <div class="page-head-row">
+        <div><h1 class="h1">Budi Santoso</h1><p class="sub mt-4">USR-001 &middot; PT ICON+ &middot; Admin ICON</p></div>
+        <div class="flex gap-8">
+          <button class="btn btn--outline">Edit User</button>
+          <button class="btn btn--outline">Reset Password</button>
+          <button class="btn btn--soft-red">Nonaktifkan</button>
+        </div>
+      </div>
+      <div class="flex gap-8 mt-16" style="margin-bottom:20px"><span class="badge badge--green"><span class="dot"></span>Aktif</span><span class="badge badge--purple">Admin ICON</span></div>
+      <div class="tabs" data-tabs="user">
+        <a href="#" class="tab is-active" data-tab="info">Informasi User</a>
+        <a href="#" class="tab" data-tab="act">Aktivitas User</a>
+      </div>
+      <div data-tab-panel="info" data-tabs-for="user"><div class="card"><div class="muted" style="font:700 11px var(--font-head);letter-spacing:.4px;text-transform:uppercase;margin-bottom:16px">Data Pribadi</div>
+      <div class="kv-grid" style="grid-template-columns:1fr">
+        <div class="kv"><div class="k">Nama Lengkap</div><div class="v">Budi Santoso</div></div>
+        <div class="kv"><div class="k">Email</div><div class="v">budi.santoso@icon.co.id</div></div>
+        <div class="kv"><div class="k">Perusahaan</div><div class="v">PT ICON+</div></div>
+        <div class="kv"><div class="k">Role</div><div class="v">Admin ICON</div></div>
+        <div class="kv"><div class="k">Status</div><div class="v">Aktif</div></div>
+        <div class="kv"><div class="k">Dibuat</div><div class="v">2023-01-15</div></div>
+        <div class="kv"><div class="k">Last Login</div><div class="v">2024-09-11 08:32</div></div>
+      </div></div></div>
+      <div data-tab-panel="act" data-tabs-for="user" hidden><div class="card"><div class="muted" style="font:700 11px var(--font-head);letter-spacing:.4px;text-transform:uppercase;margin-bottom:12px">Riwayat Aktivitas</div><div class="flex gap-12" style="padding:12px 0;border-bottom:1px solid var(--slate-100);font-size:13px"><span class="mono" style="color:var(--slate-400);font-weight:400;width:150px;flex:none">2024-09-11 09:15</span><span>Login ke sistem</span></div><div class="flex gap-12" style="padding:12px 0;border-bottom:1px solid var(--slate-100);font-size:13px"><span class="mono" style="color:var(--slate-400);font-weight:400;width:150px;flex:none">2024-09-11 09:20</span><span>Membuka halaman Work Order</span></div><div class="flex gap-12" style="padding:12px 0;border-bottom:1px solid var(--slate-100);font-size:13px"><span class="mono" style="color:var(--slate-400);font-weight:400;width:150px;flex:none">2024-09-10 16:44</span><span>Memperbarui progress proyek PRJ-2024-0019</span></div><div class="flex gap-12" style="padding:12px 0;border-bottom:1px solid var(--slate-100);font-size:13px"><span class="mono" style="color:var(--slate-400);font-weight:400;width:150px;flex:none">2024-09-10 14:30</span><span>Mengkonfirmasi jadwal survey SVY-2024-0031</span></div><div class="flex gap-12" style="padding:12px 0;border-bottom:1px solid var(--slate-100);font-size:13px"><span class="mono" style="color:var(--slate-400);font-weight:400;width:150px;flex:none">2024-09-09 10:12</span><span>Login ke sistem</span></div></div></div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/app.js"></script>
+</body>
+</html>
