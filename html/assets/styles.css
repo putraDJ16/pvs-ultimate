@@ -157,10 +157,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ------------------------------------------------------------ 5. Card */
 .card {
-  background: #fff; border: 1.25px solid var(--slate-200); border-radius: var(--r-lg);
-  padding: 20px;
+  background: #fff; border: 1px solid var(--slate-200); border-radius: 16px;
+  padding: 20px; box-shadow: var(--shadow-card);
 }
-.card__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.card__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; gap: 12px; flex-wrap: wrap; }
 .card__head .h3 { margin: 0; }
 .card__head .link { font: 600 13px var(--font-head); color: var(--brand-dark); }
 .card + .card { margin-top: 18px; }
@@ -194,7 +194,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   height: 36px; padding: 0 16px; border-radius: var(--r-md);
   font: 600 13px var(--font-head); border: 1px solid transparent;
-  transition: filter .12s ease;
+  white-space: nowrap; transition: filter .12s ease;
 }
 .btn svg { width: 14px; height: 14px; }
 .btn:hover { filter: brightness(1.06); text-decoration: none; }
@@ -242,10 +242,16 @@ table.tbl { width: 100%; border-collapse: collapse; }
   text-transform: uppercase; letter-spacing: .4px;
   padding: 0 10px 10px; border-bottom: 1px solid var(--slate-200);
 }
-.tbl tbody td { padding: 14px 10px; border-bottom: 1px solid var(--slate-100); font: 400 13px var(--font-body); color: var(--slate-700); vertical-align: middle; }
+.tbl tbody td {
+  padding: 14px 10px; border-bottom: 1px solid var(--slate-100); font: 400 13px var(--font-body);
+  color: var(--slate-700); vertical-align: middle; overflow: hidden; text-overflow: ellipsis;
+}
 .tbl tbody tr:last-child td { border-bottom: none; }
+.tbl tbody tr { transition: background .12s ease; }
+.tbl tbody tr:hover { background: var(--slate-50); }
 .tbl .strong { font: 600 13px var(--font-head); color: var(--slate-900); }
 .tbl .mono { font-family: 'SFMono-Regular', Consolas, monospace; color: var(--green-700); font-weight: 600; }
+.tbl td.actions-col, .tbl th.actions-col { white-space: nowrap; width: 1%; }
 
 /* --------------------------------------------------------- 11. Badge */
 .badge {
