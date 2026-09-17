@@ -261,6 +261,9 @@ table.tbl { width: 100%; border-collapse: collapse; }
 .badge--red     { background: var(--red-100);   color: #B91C1C; }
 .badge--purple  { background: var(--purple-100);color: #6D28D9; }
 .badge .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.ic { flex-shrink: 0; vertical-align: middle; }
+.ic svg { display: block; width: 100%; height: 100%; }
+.status-dot { display: inline-block; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
 
 /* -------------------------------------------------- 11b. Master data nav */
 .md-layout { display: grid; grid-template-columns: 250px 1fr; gap: 18px; align-items: start; }

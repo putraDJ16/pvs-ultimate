@@ -14,7 +14,7 @@ def stepper(steps, current_idx):
     out = '<div class="stepper">'
     for i, label in enumerate(steps):
         if i < current_idx:
-            cls, num = 'is-done', '✓'
+            cls, num = 'is-done', icon('check', 12)
         elif i == current_idx:
             cls, num = 'is-current', str(i + 1)
         else:
@@ -29,9 +29,11 @@ def stepper(steps, current_idx):
 
 def stars(n, of=5, small=False):
     cls = 'stars stars--sm' if small else 'stars'
+    sz = 15 if small else 20
     out = f'<div class="{cls}">'
     for i in range(of):
-        out += f'<span class="star{" is-on" if i < n else ""}">★</span>'
+        ic = icon('star', sz) if i < n else icon('starOutline', sz)
+        out += f'<span class="star{" is-on" if i < n else ""}">{ic}</span>'
     out += '</div>'
     return out
 
@@ -44,27 +46,27 @@ def pbar_labeled(actual, planned, delta_txt, color):
 # ------------------------------------------------------------ Dashboard
 def build_dashboard():
     kpis = f'''<div class="kpi-row" style="grid-auto-columns:1fr">
-      {kpi('Available Opportunities', '2', 'green', '🎯')}
-      {kpi('Undangan', '1', 'blue', '📬')}
-      {kpi('Pending Survey', '1', 'purple', '📍')}
-      {kpi('Quotation Due', '1', 'amber', '💼', '3 hari lagi')}
-      {kpi('Active Projects', '2', 'cyan', '🏗')}
+      {kpi('Available Opportunities', '2', 'green', 'target')}
+      {kpi('Undangan', '1', 'blue', 'inbox')}
+      {kpi('Pending Survey', '1', 'purple', 'mapPin')}
+      {kpi('Quotation Due', '1', 'amber', 'briefcase', '3 hari lagi')}
+      {kpi('Active Projects', '2', 'cyan', 'hardHat')}
     </div>'''
 
     actions = [
-        ('red', '💼', 'Submit Quotation', 'WO-2024-0045 &ndash; Quotation due dalam 3 hari (25 Sep 2024)', 'Buat Quotation'),
-        ('amber', '📍', 'Konfirmasi Survey', 'SVY-2024-0031 &ndash; Menunggu konfirmasi jadwal dari ICONGreen', 'Lihat Survey'),
-        ('red', '📊', 'Update Progress', 'PRJ-2024-0019 &ndash; Progress report W9 belum dikirim (due hari ini)', 'Update Progress'),
-        ('amber', '📄', 'Upload Dokumen', 'PRJ-2024-0016 &ndash; DED Engineering perlu diupload', 'Upload'),
+        ('red', 'briefcase', 'Submit Quotation', 'WO-2024-0045 &ndash; Quotation due dalam 3 hari (25 Sep 2024)', 'Buat Quotation'),
+        ('amber', 'mapPin', 'Konfirmasi Survey', 'SVY-2024-0031 &ndash; Menunggu konfirmasi jadwal dari ICONGreen', 'Lihat Survey'),
+        ('red', 'barChart', 'Update Progress', 'PRJ-2024-0019 &ndash; Progress report W9 belum dikirim (due hari ini)', 'Update Progress'),
+        ('amber', 'fileText', 'Upload Dokumen', 'PRJ-2024-0016 &ndash; DED Engineering perlu diupload', 'Upload'),
     ]
     action_items = ''.join(f'''<div class="action-item action-item--{kind}">
       <div class="flex items-center gap-12">{icon(ic,18)}<div><div class="t">{t}</div><div class="d">{d}</div></div></div>
       <button class="btn {'btn--danger' if kind=='red' else 'btn--primary'} btn--sm">{cta}</button>
     </div>''' for kind, ic, t, d, cta in actions)
-    action_card = card('🔴 Action Required', f'<div class="mt-8">{action_items}</div>', '<span class="sub">4 item</span>')
+    action_card = card(f'{icon("alert",16)} Action Required', f'<div class="mt-8">{action_items}</div>', '<span class="sub">4 item</span>')
 
     activity = [
-        ('#DBEAFE', '📍', 'Survey SVY-2024-0031 dijadwalkan ulang ke 20 Sep 2024', 'ICONGreen &middot; Kemarin, 14:45'),
+        ('#DBEAFE', 'mapPin', 'Survey SVY-2024-0031 dijadwalkan ulang ke 20 Sep 2024', 'ICONGreen &middot; Kemarin, 14:45'),
     ]
     items = ''.join(f'''<div class="timeline__item"><div class="timeline__dot" style="background:{bg}">{icon(ic,13)}</div>
       <div class="timeline__body"><div class="t">{t}</div><div class="d">{d}</div></div></div>''' for bg, ic, t, d in activity)
@@ -88,7 +90,7 @@ def build_dashboard():
 
 # --------------------------------------------------------- Opportunities
 def build_opportunities():
-    banner = f'''<div class="alert mt-24" style="margin-bottom:20px;background:#DCFCE7;color:#15803D">{icon('💡',16)}<span>Ada <strong>2 peluang</strong> yang tersedia. Submit keminatan sebelum deadline untuk mengikuti seleksi.</span></div>'''
+    banner = f'''<div class="alert mt-24" style="margin-bottom:20px;background:#DCFCE7;color:#15803D">{icon('lightbulb',16)}<span>Ada <strong>2 peluang</strong> yang tersedia. Submit keminatan sebelum deadline untuk mengikuti seleksi.</span></div>'''
     opps = [
         ('WO-2024-0040', 'PT Gudang Garam', 'Kediri, Jawa Timur', 'PLTS Ground Mounted', '2024-09-20', '2 MWp'),
         ('WO-2024-0048', 'PT Holcim Indonesia', 'Bogor, Jawa Barat', 'PLTS Atap Industri', '2024-09-22', '600 kWp'),
@@ -114,7 +116,7 @@ def build_opportunities():
 # ----------------------------------------------------------- Quotations
 def build_quotations():
     banner = f'''<div class="action-item action-item--amber mt-24" style="margin-bottom:20px">
-      <div><div class="t">⚠ Quotation Perlu Dibuat</div><div class="d">WO-2024-0045 &ndash; PT Astra International (750 kWp) &middot; Deadline: 2024-09-22</div></div>
+      <div><div class="t">{icon('alert',14)} Quotation Perlu Dibuat</div><div class="d">WO-2024-0045 &ndash; PT Astra International (750 kWp) &middot; Deadline: 2024-09-22</div></div>
       <a href="quotation-form.html" class="btn btn--primary btn--sm">Buat Quotation</a>
     </div>'''
     rows = [
@@ -175,7 +177,7 @@ def build_quotation_form():
     </div>'''
     boq_panel = f'<div data-tab-panel="t1" data-tabs-for="quo" hidden>{card("Bill of Quantity", boq_table)}<div class="mt-24">{boq_total}</div></div>'
 
-    content = f'''      <a class="back-link" href="quotations.html">{icon('←',13)} Kembali</a>
+    content = f'''      <a class="back-link" href="quotations.html">{icon('arrowLeft',13)} Kembali</a>
       <div class="page-head-row"><div><h1 class="h1">Buat Quotation</h1><p class="sub mt-4">WO-2024-0045 &ndash; PT Astra International &middot; 750 kWp</p></div>
         <div class="flex gap-8"><button class="btn btn--outline">Simpan Draft</button><button class="btn btn--primary">Submit Quotation</button></div></div>
       <div class="tabs" data-tabs="quo">{tab_html}</div>
@@ -219,12 +221,12 @@ def build_project_detail():
         {kv('Start Date','2024-09-10')}{kv('Next Update','Hari ini')}
       </div>''')
     right = f'''{card(None, f'<div class="sub">Nilai Kontrak</div><div style="font:700 26px var(--font-head);color:var(--green-600);margin-top:4px">Rp 1.35 M</div>')}
-      {card(None, f'{icon("⚠",15)} <strong style="color:#B45309">Status Proyek</strong><p class="mt-8" style="font-size:13px;color:#92400E">Actual Progress <b>42%</b>, Planned <b>48%</b>. Variance <b>-6%</b>. Segera update progress terbaru.</p><a href="update-progress.html" class="btn btn--primary btn--sm mt-16" style="display:inline-block">Update Progress</a>')}'''
+      {card(None, f'{icon("alert",15)} <strong style="color:#B45309">Status Proyek</strong><p class="mt-8" style="font-size:13px;color:#92400E">Actual Progress <b>42%</b>, Planned <b>48%</b>. Variance <b>-6%</b>. Segera update progress terbaru.</p><a href="update-progress.html" class="btn btn--primary btn--sm mt-16" style="display:inline-block">Update Progress</a>')}'''
     other_tabs = ''
     for i, t in enumerate(tabs[1:], start=1):
         placeholder = f'<p class="sub">Detail {t.lower()} untuk PRJ-2024-0019 akan tampil di sini.</p>'
         other_tabs += f'<div data-tab-panel="t{i}" data-tabs-for="prj" hidden>{card(t, placeholder)}</div>'
-    content = f'''      <a class="back-link" href="projects.html">{icon('←',13)} Kembali</a>
+    content = f'''      <a class="back-link" href="projects.html">{icon('arrowLeft',13)} Kembali</a>
       <div class="page-head-row"><div><h1 class="h1">PRJ-2024-0019</h1><p class="sub mt-4">RSUD Dr. Soetomo &middot; 200 kWp</p></div>{dot_badge('At Risk','amber')}</div>
       <div class="tabs mt-24" data-tabs="prj">{tab_html}</div>
       <div data-tab-panel="t0" data-tabs-for="prj"><div class="grid-2" style="grid-template-columns:1.6fr 1fr">{overview}<div class="flex-col gap-12">{right}</div></div></div>
@@ -256,9 +258,9 @@ def build_update_progress():
         placeholder = f'<p class="sub mt-16">Item progress {label.lower()} akan tampil di sini.</p>'
         other_panels += f'<div data-tab-panel="t{i}" data-tabs-for="upd" hidden>{placeholder}</div>'
 
-    content = f'''      <a class="back-link" href="projects.html">{icon('←',13)} Kembali</a>
+    content = f'''      <a class="back-link" href="projects.html">{icon('arrowLeft',13)} Kembali</a>
       <div class="page-head-row"><div><h1 class="h1">Update Progress</h1><p class="sub mt-4">PRJ-2024-0019 &middot; RSUD Dr. Soetomo</p></div>
-        <div class="flex gap-8"><button class="btn btn--outline">Simpan Draft</button><button class="btn btn--primary">Review &amp; Submit →</button></div></div>
+        <div class="flex gap-8"><button class="btn btn--outline">Simpan Draft</button><button class="btn btn--primary">Review &amp; Submit {icon('arrowRight',13)}</button></div></div>
       <div class="tabs mt-24" data-tabs="upd">{tab_html}</div>
       <div data-tab-panel="t0" data-tabs-for="upd">{eng_panel}</div>
       {other_panels}'''
@@ -295,7 +297,7 @@ def build_rating():
     stat = f'''<div class="kpi-row" style="grid-auto-columns:1fr">
       <div class="stat-box stat-box--amber"><div class="n">1</div><div class="l">Menunggu Rating</div></div>
       <div class="stat-box stat-box--green"><div class="n">2</div><div class="l">Sudah Dirating</div></div>
-      <div class="stat-box"><div class="n">4.5 ★</div><div class="l">Rating Rata-rata</div></div>
+      <div class="stat-box"><div class="n">4.5 {icon('star',16)}</div><div class="l">Rating Rata-rata</div></div>
       <div class="stat-box"><div class="n">3</div><div class="l">Total Proyek Selesai</div></div>
     </div>'''
     item = f'''<div class="card">
@@ -304,7 +306,7 @@ def build_rating():
           <div style="font:700 17px var(--font-head);color:var(--slate-900);margin-top:6px">RSUD Dr. Soetomo</div>
           <div class="sub mt-4">Surabaya, Jawa Timur &middot; 200 kWp &middot; Selesai: 2024-09-02</div></div>
         <div style="text-align:right"><div style="font:700 18px var(--font-head);color:var(--green-600);margin-bottom:10px">Rp 1.35 M</div>
-          <a href="rating-form.html" class="btn btn--primary btn--sm">★ Beri Rating</a></div>
+          <a href="rating-form.html" class="btn btn--primary btn--sm">{icon('star',13)} Beri Rating</a></div>
       </div></div>'''
     content = f'''      <div class="page-head"><h1 class="h1">Rating Proyek</h1><p class="sub">Berikan penilaian untuk proyek yang telah selesai</p></div>
       {stat}
@@ -336,8 +338,8 @@ def build_rating_form():
     left = card('Penilaian per Kriteria', crit_html)
     right = f'''{card('Rating Keseluruhan', '<p class="sub" style="text-align:center;padding:20px 0">Isi semua kriteria untuk melihat rating keseluruhan</p>')}
       {card('Komentar &amp; Saran', '<textarea class="input" rows="5" placeholder="Tuliskan pengalaman Anda bekerja sama dengan ICONGreen pada proyek ini. Saran dan masukan sangat diapresiasi..."></textarea><div class="sub mt-8">0 karakter</div>')}
-      <div class="alert alert--info mt-16">{icon('ℹ',15)}<span>Rating bersifat anonim dan hanya digunakan untuk peningkatan layanan ICONGreen. Rating tidak dapat diubah setelah disubmit.</span></div>'''
-    content = f'''      <a class="back-link" href="rating.html">{icon('←',13)} Kembali</a>
+      <div class="alert alert--info mt-16">{icon('info',15)}<span>Rating bersifat anonim dan hanya digunakan untuk peningkatan layanan ICONGreen. Rating tidak dapat diubah setelah disubmit.</span></div>'''
+    content = f'''      <a class="back-link" href="rating.html">{icon('arrowLeft',13)} Kembali</a>
       <div class="page-head-row"><div><h1 class="h1">Berikan Rating</h1><p class="sub mt-4">PRJ-2024-0016 &middot; RSUD Dr. Soetomo &middot; 200 kWp</p></div>
         <div class="flex gap-8"><button class="btn btn--outline">Batal</button><button class="btn btn--primary">Submit Rating</button></div></div>
       {info}
@@ -346,18 +348,18 @@ def build_rating_form():
 
 # ----------------------------------------------------------------- Survey
 def build_surveys():
-    banner = f'''<div class="alert alert--warn mt-24" style="margin-bottom:18px">{icon('⏰',16)}<strong>2 Survey Memerlukan Tindakan Anda</strong></div>'''
+    banner = f'''<div class="alert alert--warn mt-24" style="margin-bottom:18px">{icon('alarmClock',16)}<strong>2 Survey Memerlukan Tindakan Anda</strong></div>'''
     quick = ''
     for sid, cust, loc, status, skind in [('SVY-2024-0034', 'PLN Persero UP3 Bandung', 'Bandung, Jawa Barat', 'Requested', 'blue'), ('SVY-2024-0033', 'PT Holcim Indonesia', 'Bogor, Jawa Barat', 'ICONGreen Counter', 'purple')]:
         quick += f'''<div class="card" style="margin-bottom:12px"><div class="flex justify-between items-center">
           <div><span class="mono strong" style="color:var(--green-700)">{sid}</span> <strong>{cust}</strong> <span class="sub">{loc}</span></div>
-          <div class="flex items-center gap-12">{dot_badge(status,skind)}<a href="survey-negotiation.html" class="btn btn--primary btn--sm">Tindak Lanjut →</a></div>
+          <div class="flex items-center gap-12">{dot_badge(status,skind)}<a href="survey-negotiation.html" class="btn btn--primary btn--sm">Tindak Lanjut {icon('arrowRight',13)}</a></div>
         </div></div>'''
 
     rows = [
         ('SVY-2024-0034', 'Requested', 'blue', 'PLN Persero UP3 Bandung', 'Bandung, Jawa Barat', 'Deadline: 2024-09-22', None),
-        ('SVY-2024-0033', 'ICONGreen Counter', 'purple', 'PT Holcim Indonesia', 'Bogor, Jawa Barat', 'Deadline: 2024-09-20', 'Usulan terakhir (ICONGreen): 2024-09-18 &middot; 10:00 WIB &middot; <span style="color:#7C3AED">● Menunggu respons</span>'),
-        ('SVY-2024-0031', 'Mitra Proposed', 'slate', 'PT Indofood CBP Sukses Makmur', 'Cikampek, Jawa Barat', 'Deadline: 2024-09-25', 'Usulan terakhir (Mitra): 2024-09-20 &middot; 09:00 WIB &middot; <span style="color:#D97706">● Menunggu respons</span>'),
+        ('SVY-2024-0033', 'ICONGreen Counter', 'purple', 'PT Holcim Indonesia', 'Bogor, Jawa Barat', 'Deadline: 2024-09-20', 'Usulan terakhir (ICONGreen): 2024-09-18 &middot; 10:00 WIB &middot; <span style="color:#7C3AED"><span class="status-dot" style="background:#7C3AED"></span>Menunggu respons</span>'),
+        ('SVY-2024-0031', 'Mitra Proposed', 'slate', 'PT Indofood CBP Sukses Makmur', 'Cikampek, Jawa Barat', 'Deadline: 2024-09-25', 'Usulan terakhir (Mitra): 2024-09-20 &middot; 09:00 WIB &middot; <span style="color:#D97706"><span class="status-dot" style="background:#D97706"></span>Menunggu respons</span>'),
     ]
     list_html = ''
     for sid, status, skind, cust, loc, due, extra in rows:
@@ -368,7 +370,7 @@ def build_surveys():
               <div style="font:700 16px var(--font-head);color:var(--slate-900);margin-top:8px">{cust}</div>
               <div class="sub mt-4">{loc}</div>
               {f'<div class="sub mt-8">{extra}</div>' if extra else ''}</div>
-            <div style="text-align:right"><div class="sub" style="margin-bottom:8px">{due}</div><a href="survey-negotiation.html" class="btn btn--outline btn--sm">Detail →</a></div>
+            <div style="text-align:right"><div class="sub" style="margin-bottom:8px">{due}</div><a href="survey-negotiation.html" class="btn btn--outline btn--sm">Detail {icon('arrowRight',13)}</a></div>
           </div></div>'''
 
     content = f'''      <div class="page-head"><h1 class="h1">Survey</h1><p class="sub">Negosiasi dan konfirmasi jadwal survey bersama ICONGreen</p></div>
@@ -391,14 +393,14 @@ def build_survey_negotiation():
         <div class="mt-16"><label class="sub" style="display:block;margin-bottom:6px">Catatan (opsional)</label><input class="input" placeholder="Alasan atau kondisi khusus..."></div>
         <div class="flex gap-8 mt-16"><button class="btn btn--outline">Batal</button><button class="btn btn--primary">Kirim Usulan</button></div>
       </div>''')
-    checklist = ''.join(f'<div class="flex items-center gap-8" style="padding:6px 0">{icon("✓",13)}<span>{c}</span></div>' for c in ['Kondisi atap/lahan', 'Orientasi &amp; kemiringan', 'Potensi shading', 'Akses instalasi', 'Infrastruktur listrik', 'Kapasitas daya terpasang'])
+    checklist = ''.join(f'<div class="flex items-center gap-8" style="padding:6px 0">{icon("check",13)}<span>{c}</span></div>' for c in ['Kondisi atap/lahan', 'Orientasi &amp; kemiringan', 'Potensi shading', 'Akses instalasi', 'Infrastruktur listrik', 'Kapasitas daya terpasang'])
     detail_survey_body = f'''<div class="kv-grid" style="grid-template-columns:1fr">
       {kv('WO','WO-2024-0044')}{kv('Customer','PLN Persero UP3 Bandung')}{kv('Lokasi','Bandung, Jawa Barat')}
       {kv('Deadline','2024-09-22')}{kv('Confirmed Date','-')}
     </div>'''
     right = f'''{card('Detail Survey', detail_survey_body)}
     {card('Checklist Survey', checklist)}'''
-    content = f'''      <a class="back-link" href="surveys.html">{icon('←',13)} Kembali</a>
+    content = f'''      <a class="back-link" href="surveys.html">{icon('arrowLeft',13)} Kembali</a>
       <div class="page-head-row"><div><h1 class="h1">SVY-2024-0034</h1><p class="sub mt-4">PLN Persero UP3 Bandung &middot; Bandung, Jawa Barat</p></div>{dot_badge('Requested','blue')}</div>
       <div class="card mt-24" style="margin-bottom:24px"><div class="muted" style="font:700 11px var(--font-head);letter-spacing:.4px;text-transform:uppercase;margin-bottom:16px">Alur Negosiasi Tanggal Survey</div>{st}</div>
       <div class="grid-2">{left}<div class="flex-col gap-16">{right}</div></div>'''
@@ -424,7 +426,7 @@ def build_survey_report():
     </div>''')
     penilaian = card('Penilaian &amp; Kelayakan', f'''
       <div style="margin-bottom:20px"><label class="sub" style="display:block;margin-bottom:8px">Tingkat Risiko Proyek *</label>
-      <div class="pill-select"><div class="pill is-selected--green">🟢 Rendah</div><div class="pill">🟡 Sedang</div><div class="pill">🔴 Tinggi</div></div></div>
+      <div class="pill-select"><div class="pill is-selected--green"><span class="status-dot" style="background:currentColor"></span>Rendah</div><div class="pill"><span class="status-dot" style="background:#D97706"></span>Sedang</div><div class="pill"><span class="status-dot" style="background:#DC2626"></span>Tinggi</div></div></div>
       <div><label class="sub" style="display:block;margin-bottom:8px">Rekomendasi Kelayakan *</label>
       <div class="pill-select"><div class="pill is-selected--green">Layak</div><div class="pill">Layak Bersyarat</div><div class="pill">Tidak Layak</div></div></div>''')
 
@@ -433,14 +435,14 @@ def build_survey_report():
       <div style="font:700 15px var(--font-head);color:#B45309;margin:8px 0 16px">Kompetitif</div>
       <div class="muted" style="font:700 11px var(--font-head);letter-spacing:.4px;text-transform:uppercase;margin-bottom:10px">Breakdown Skor</div>
       <div class="flex-col gap-8">
-        <div class="flex justify-between items-center"><span>💰 Harga/Wp</span>{stars(5, small=True)}</div>
-        <div class="flex justify-between items-center"><span>⏱ Durasi/Kapasitas</span>{stars(1, small=True)}</div>
-        <div class="flex justify-between items-center"><span>⚡ Kapasitas</span>{stars(5, small=True)}</div>
+        <div class="flex justify-between items-center"><span>{icon('dollarSign',14)} Harga/Wp</span>{stars(5, small=True)}</div>
+        <div class="flex justify-between items-center"><span>{icon('alarmClock',14)} Durasi/Kapasitas</span>{stars(1, small=True)}</div>
+        <div class="flex justify-between items-center"><span>{icon('zap',14)} Kapasitas</span>{stars(5, small=True)}</div>
       </div>''')
-    reco = f'<div class="stat-box stat-box--green mt-16">✅ <strong>Rekomendasi Mitra</strong><div style="font:700 18px var(--font-head);color:var(--green-600);margin-top:4px">Layak</div></div>'
-    submit_btn = '<button class="btn btn--primary" style="width:100%;margin-top:16px">Submit Laporan →</button>'
+    reco = f'<div class="stat-box stat-box--green mt-16">{icon("checkCircle",16)} <strong>Rekomendasi Mitra</strong><div style="font:700 18px var(--font-head);color:var(--green-600);margin-top:4px">Layak</div></div>'
+    submit_btn = f'<button class="btn btn--primary" style="width:100%;margin-top:16px">Submit Laporan {icon("arrowRight",13)}</button>'
 
-    content = f'''      <a class="back-link" href="surveys.html">{icon('←',13)} Kembali</a>
+    content = f'''      <a class="back-link" href="surveys.html">{icon('arrowLeft',13)} Kembali</a>
       <div class="page-head-row"><div><h1 class="h1">Laporan Hasil Survey</h1><p class="sub mt-4">SVY-2024-0029 &middot; Universitas Indonesia &middot; Depok, Jawa Barat</p></div>
         <div class="flex gap-8"><button class="btn btn--outline">Batal</button><button class="btn btn--primary">Submit Laporan</button></div></div>
       {info}

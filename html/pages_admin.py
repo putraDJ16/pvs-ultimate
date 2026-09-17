@@ -9,10 +9,10 @@ def write(path, html):
 
 def build_dashboard():
     kpis = f'''<div class="kpi-row">
-      {kpi('Total User', '8', 'purple', '👥')}
-      {kpi('Active User', '6', 'green', '✅', '2 non-aktif')}
-      {kpi('Total Mitra', '6', 'cyan', '🏢')}
-      {kpi('Menunggu Verifikasi', '2', 'amber', '⏳', 'Perlu tindakan')}
+      {kpi('Total User', '8', 'purple', 'users')}
+      {kpi('Active User', '6', 'green', 'checkCircle', '2 non-aktif')}
+      {kpi('Total Mitra', '6', 'cyan', 'building')}
+      {kpi('Menunggu Verifikasi', '2', 'amber', 'hourglass', 'Perlu tindakan')}
     </div>'''
 
     user_card = card(
@@ -51,12 +51,12 @@ def build_dashboard():
     )
 
     activity = [
-        ('#DCFCE7', '✓', 'Memverifikasi Mitra PT Alpha Solar Energi', 'Admin Budi &middot; Hari ini, 09:45'),
-        ('#DBEAFE', '+', 'Membuat user baru: Bambang Nugroho (Mitra)', 'Admin Budi &middot; Hari ini, 09:12'),
-        ('#CFFAFE', '📍', 'WO-2024-0047 &ndash; Mengajukan jadwal survey ke Alpha Solar', 'Rina Kusumawati &middot; Hari ini, 08:55'),
-        ('#FFF5F5', '✕', 'Menonaktifkan user Sari Indah', 'Admin Fitri &middot; Kemarin, 16:30'),
-        ('#FEF3C7', '↑', 'WO-2024-0046 &ndash; Progress proyek RSUD diperbarui: 42%', 'Agus Pratama &middot; Kemarin, 15:44'),
-        ('#F3E8FF', '⚙', 'Master Data Project Type diperbarui', 'Admin Fitri &middot; Kemarin, 14:22'),
+        ('#DCFCE7', 'check', 'Memverifikasi Mitra PT Alpha Solar Energi', 'Admin Budi &middot; Hari ini, 09:45'),
+        ('#DBEAFE', 'plus', 'Membuat user baru: Bambang Nugroho (Mitra)', 'Admin Budi &middot; Hari ini, 09:12'),
+        ('#CFFAFE', 'mapPin', 'WO-2024-0047 &ndash; Mengajukan jadwal survey ke Alpha Solar', 'Rina Kusumawati &middot; Hari ini, 08:55'),
+        ('#FFF5F5', 'x', 'Menonaktifkan user Sari Indah', 'Admin Fitri &middot; Kemarin, 16:30'),
+        ('#FEF3C7', 'arrowUp', 'WO-2024-0046 &ndash; Progress proyek RSUD diperbarui: 42%', 'Agus Pratama &middot; Kemarin, 15:44'),
+        ('#F3E8FF', 'settings', 'Master Data Project Type diperbarui', 'Admin Fitri &middot; Kemarin, 14:22'),
     ]
     items = ''
     for bg, ic, t, d in activity:
@@ -107,10 +107,10 @@ def build_users():
 
     content = f'''      <div class="page-head-row">
         <div><h1 class="h1">User Management</h1><p class="sub mt-4">8 pengguna terdaftar dalam sistem</p></div>
-        <button class="btn btn--primary">{icon('+',13)} Tambah User</button>
+        <button class="btn btn--primary">{icon('plus',13)} Tambah User</button>
       </div>
       <div class="filterbar">
-        <div class="search">{icon('🔍',15)}<input class="input" placeholder="Cari nama atau email..."></div>
+        <div class="search">{icon('search',15)}<input class="input" placeholder="Cari nama atau email..."></div>
         <select class="select select--sm"><option>Semua Role</option></select>
       </div>
       <div class="card" style="padding:0">
@@ -143,7 +143,7 @@ def build_user_detail():
     rows = ''.join(f'<div class="flex gap-12" style="padding:12px 0;border-bottom:1px solid var(--slate-100);font-size:13px"><span class="mono" style="color:var(--slate-400);font-weight:400;width:150px;flex:none">{d}</span><span>{t}</span></div>' for d, t in activities)
     activity_tab = card(None, f'<div class="muted" style="font:700 11px var(--font-head);letter-spacing:.4px;text-transform:uppercase;margin-bottom:12px">Riwayat Aktivitas</div>{rows}')
 
-    content = f'''      <a class="back-link" href="users.html">{icon('←',13)} Kembali</a>
+    content = f'''      <a class="back-link" href="users.html">{icon('arrowLeft',13)} Kembali</a>
       <div class="page-head-row">
         <div><h1 class="h1">Budi Santoso</h1><p class="sub mt-4">USR-001 &middot; PT ICON+ &middot; Admin ICON</p></div>
         <div class="flex gap-8">
@@ -172,7 +172,8 @@ def build_partners():
     ]
     trs = ''
     for name, pid, cat, loc, status, skind, rating, stars_n, active_n, upd, need_verify in rows_data:
-        rating_html = f'<span class="stars">{"★"*stars_n}{"☆"*(5-stars_n)}</span> {rating}' if rating else '-'
+        stars_html = icon('star', 13) * stars_n + icon('starOutline', 13) * (5 - stars_n)
+        rating_html = f'<span class="stars">{stars_html}</span> {rating}' if rating else '-'
         verify_btn = '<button class="btn btn--primary btn--sm">Verifikasi</button>' if need_verify else ''
         trs += f'''<tr>
           <td><div class="strong">{name}</div><div class="sub">{pid}</div></td>
@@ -186,7 +187,7 @@ def build_partners():
         </tr>'''
     content = f'''      <div class="page-head-row">
         <div><h1 class="h1">Partner Management</h1><p class="sub mt-4">6 mitra terdaftar dalam sistem</p></div>
-        <a class="btn btn--primary" href="partner-add.html">{icon('+',13)} Tambah Mitra</a>
+        <a class="btn btn--primary" href="partner-add.html">{icon('plus',13)} Tambah Mitra</a>
       </div>
       <div class="filterbar"><select class="select select--sm"><option>Semua Status</option></select></div>
       <div class="card" style="padding:0">
@@ -215,26 +216,26 @@ def build_partner_add():
     profil_tab = f'<div class="grid-2">{card("Identitas Perusahaan", identitas_body)}{card("Klasifikasi", klasifikasi_body)}</div>'
 
     dok_wajib_body = f'''<div class="grid-2">
-        <div><div style="font:600 13px var(--font-head);margin-bottom:10px">Portofolio</div><div class="upload-box">{icon('📄',22)}<div>Upload PDF</div></div></div>
+        <div><div style="font:600 13px var(--font-head);margin-bottom:10px">Portofolio</div><div class="upload-box">{icon('fileText',22)}<div>Upload PDF</div></div></div>
         <div>
           <div style="font:600 13px var(--font-head);margin-bottom:10px">NPWP Perusahaan <span class="req">*</span></div>
           <div class="field"><label class="field__label" style="font-weight:400;color:var(--slate-500)">Nomor NPWP</label><input class="input" placeholder="Nomor NPWP"></div>
           <div class="field"><label class="field__label" style="font-weight:400;color:var(--slate-500)">Masa Berlaku</label><input class="input"></div>
-          <div class="upload-box">{icon('📄',22)}<div>Upload PDF</div></div>
+          <div class="upload-box">{icon('fileText',22)}<div>Upload PDF</div></div>
         </div>
       </div>'''
     sertifikasi_body = f'''<div style="max-width:500px"><div style="font:600 13px var(--font-head);margin-bottom:10px">Sertifikasi Lainnya</div>
         <div class="field"><input class="input" placeholder="Nama &amp; Nomor"></div>
         <div class="field"><input class="input"></div>
-        <div class="upload-box">{icon('📄',22)}<div>Upload Sertifikat</div></div>
+        <div class="upload-box">{icon('fileText',22)}<div>Upload Sertifikat</div></div>
       </div>'''
-    dokumen_tab = f'''<div class="alert alert--info mt-16" style="margin-bottom:18px">{icon('📎',16)}<span>Upload dokumen legalitas dalam format PDF. Maksimal 10 MB per file.</span></div>
+    dokumen_tab = f'''<div class="alert alert--info mt-16" style="margin-bottom:18px">{icon('paperclip',16)}<span>Upload dokumen legalitas dalam format PDF. Maksimal 10 MB per file.</span></div>
       {card('Dokumen Wajib', dok_wajib_body)}
       {card('Sertifikasi (Opsional)', sertifikasi_body)}'''
 
     content = f'''      <div class="page-head-row">
         <div>
-          <a class="back-link" href="partners.html" style="margin-bottom:8px">{icon('←',13)} Kembali</a>
+          <a class="back-link" href="partners.html" style="margin-bottom:8px">{icon('arrowLeft',13)} Kembali</a>
           <h1 class="h1">Tambah Mitra Baru</h1><p class="sub mt-4">Daftarkan mitra / EPC / PV Developer baru ke sistem</p>
         </div>
         <div class="flex gap-8"><button class="btn btn--outline">Batal</button><button class="btn btn--primary">Simpan &amp; Kirim untuk Verifikasi</button></div>
@@ -266,7 +267,7 @@ def md_panel(key, group, title, headers, rows, active=False):
     table = md_table(headers, rows)
     body = f'''<div class="flex justify-between items-center" style="padding:20px 20px 0">
             <h3 class="h3">{title}</h3>
-            <button class="btn btn--primary btn--sm">{icon('+',12)} Tambah Data</button>
+            <button class="btn btn--primary btn--sm">{icon('plus',12)} Tambah Data</button>
           </div>
           <div class="mt-16">{table}</div>'''
     hidden = '' if active else ' hidden'
@@ -377,14 +378,14 @@ def build_master_data():
 
 def build_audit_log():
     rows_data = [
-        ('#DCFCE7', '✓', '2024-09-11 09:45:22', 'Mitra Diverifikasi', 'Budi Santoso', 'Partner Management', 'PT Alpha Solar Energi (PTR-001)'),
-        ('#DBEAFE', '+', '2024-09-11 09:12:05', 'User Dibuat', 'Budi Santoso', 'User Management', 'Bambang Nugroho (USR-007)'),
-        ('#F3E8FF', '↕', '2024-09-10 16:30:44', 'Role User Diubah', 'Fitri Handayani', 'User Management', 'Sari Indah &rarr; Nonaktif (USR-006)'),
-        ('#E2E8F0', '⚙', '2024-09-10 14:22:11', 'Master Data Diperbarui', 'Fitri Handayani', 'Master Data', 'Project Type &ndash; PLTS Ground Mounted'),
-        ('#DCFCE7', '✓', '2024-09-10 11:05:33', 'Mitra Diverifikasi', 'Budi Santoso', 'Partner Management', 'PT Zeta Renewable (PTR-006)'),
-        ('#FFF5F5', '✕', '2024-09-09 15:44:18', 'User Dinonaktifkan', 'Budi Santoso', 'User Management', 'Sari Indah (USR-006)'),
-        ('#FEF3C7', '🔒', '2024-09-09 10:02:57', 'Data Permission Diperbarui', 'Fitri Handayani', 'Master Data', 'Role ICONGreen &ndash; Akses Billing'),
-        ('#CFFAFE', '🏢', '2024-09-08 14:30:00', 'Mitra Didaftarkan', 'Budi Santoso', 'Partner Management', 'PT Gamma Solar (PTR-003)'),
+        ('#DCFCE7', 'check', '2024-09-11 09:45:22', 'Mitra Diverifikasi', 'Budi Santoso', 'Partner Management', 'PT Alpha Solar Energi (PTR-001)'),
+        ('#DBEAFE', 'plus', '2024-09-11 09:12:05', 'User Dibuat', 'Budi Santoso', 'User Management', 'Bambang Nugroho (USR-007)'),
+        ('#F3E8FF', 'arrowUpDown', '2024-09-10 16:30:44', 'Role User Diubah', 'Fitri Handayani', 'User Management', 'Sari Indah &rarr; Nonaktif (USR-006)'),
+        ('#E2E8F0', 'settings', '2024-09-10 14:22:11', 'Master Data Diperbarui', 'Fitri Handayani', 'Master Data', 'Project Type &ndash; PLTS Ground Mounted'),
+        ('#DCFCE7', 'check', '2024-09-10 11:05:33', 'Mitra Diverifikasi', 'Budi Santoso', 'Partner Management', 'PT Zeta Renewable (PTR-006)'),
+        ('#FFF5F5', 'x', '2024-09-09 15:44:18', 'User Dinonaktifkan', 'Budi Santoso', 'User Management', 'Sari Indah (USR-006)'),
+        ('#FEF3C7', 'lock', '2024-09-09 10:02:57', 'Data Permission Diperbarui', 'Fitri Handayani', 'Master Data', 'Role ICONGreen &ndash; Akses Billing'),
+        ('#CFFAFE', 'building', '2024-09-08 14:30:00', 'Mitra Didaftarkan', 'Budi Santoso', 'Partner Management', 'PT Gamma Solar (PTR-003)'),
     ]
     trs = ''
     for bg, ic, waktu, act, user, modul, obj in rows_data:
@@ -397,9 +398,9 @@ def build_audit_log():
           <td style="padding-right:20px">{obj}</td>
         </tr>'''
     content = f'''      <div class="page-head"><h1 class="h1">Audit Log</h1><p class="sub">Riwayat seluruh aktivitas administrasi sistem &middot; Read-only</p></div>
-      <div class="alert alert--warn mt-24" style="margin-bottom:18px">{icon('ℹ️',16)}<span>Audit Log bersifat <strong>read-only</strong>. Data tidak dapat diubah atau dihapus.</span></div>
+      <div class="alert alert--warn mt-24" style="margin-bottom:18px">{icon('info',16)}<span>Audit Log bersifat <strong>read-only</strong>. Data tidak dapat diubah atau dihapus.</span></div>
       <div class="filterbar">
-        <div class="search" style="flex:1;max-width:none">{icon('🔍',15)}<input class="input" placeholder="Cari user, aktivitas, atau objek..."></div>
+        <div class="search" style="flex:1;max-width:none">{icon('search',15)}<input class="input" placeholder="Cari user, aktivitas, atau objek..."></div>
         <select class="select select--sm"><option>Semua Modul</option></select>
         <input class="input" style="width:150px" type="text" placeholder="">
       </div>
