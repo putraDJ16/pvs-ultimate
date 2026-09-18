@@ -46,24 +46,24 @@
       <div class="grid-2" style="grid-template-columns:1.6fr 1fr"><div class="card"><div class="card__head"><h3 class="h3">Penilaian per Kriteria</h3></div><div style="margin-bottom:24px">
       <div style="font:700 14px var(--font-head);color:var(--slate-900)">Koordinasi &amp; Komunikasi</div>
       <div class="sub mt-4" style="margin-bottom:10px">Kemudahan komunikasi dan respons dari tim ICONGreen</div>
-      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="stars stars--input" data-rating="0"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
     </div><div style="margin-bottom:24px">
       <div style="font:700 14px var(--font-head);color:var(--slate-900)">Dukungan Teknis</div>
       <div class="sub mt-4" style="margin-bottom:10px">Kualitas panduan teknis dan bantuan selama proyek</div>
-      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="stars stars--input" data-rating="0"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
     </div><div style="margin-bottom:24px">
       <div style="font:700 14px var(--font-head);color:var(--slate-900)">Ketepatan Pembayaran</div>
       <div class="sub mt-4" style="margin-bottom:10px">Ketepatan waktu pembayaran sesuai milestone</div>
-      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="stars stars--input" data-rating="0"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
     </div><div style="margin-bottom:24px">
       <div style="font:700 14px var(--font-head);color:var(--slate-900)">Kejelasan Dokumen</div>
       <div class="sub mt-4" style="margin-bottom:10px">Kelengkapan dan kejelasan dokumen kontrak dan teknis</div>
-      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="stars stars--input" data-rating="0"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
     </div><div style="margin-bottom:24px">
       <div style="font:700 14px var(--font-head);color:var(--slate-900)">Fleksibilitas Scope</div>
       <div class="sub mt-4" style="margin-bottom:10px">Kemampuan menyesuaikan scope jika ada perubahan lapangan</div>
-      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-    </div></div><div class="flex-col gap-16"><div class="card"><div class="card__head"><h3 class="h3">Rating Keseluruhan</h3></div><p class="sub" style="text-align:center;padding:20px 0">Isi semua kriteria untuk melihat rating keseluruhan</p></div>
+      <div class="stars stars--input" data-rating="0"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    </div></div><div class="flex-col gap-16"><div class="card"><div class="card__head"><h3 class="h3">Rating Keseluruhan</h3></div><p class="sub" id="ratingOverallEmpty" style="text-align:center;padding:20px 0">Isi semua kriteria untuk melihat rating keseluruhan</p><div id="ratingOverallResult" style="display:none;text-align:center;padding:12px 0"><div style="font:700 36px var(--font-head);color:var(--slate-900)" id="ratingOverallScore">0.0</div><div class="stars" id="ratingOverallStars" style="justify-content:center;margin:8px 0"></div><div class="sub">dari 5 kriteria terisi</div></div></div>
       <div class="card"><div class="card__head"><h3 class="h3">Komentar &amp; Saran</h3></div><textarea class="input" rows="5" placeholder="Tuliskan pengalaman Anda bekerja sama dengan ICONGreen pada proyek ini. Saran dan masukan sangat diapresiasi..."></textarea><div class="sub mt-8">0 karakter</div></div>
       <div class="alert alert--info mt-16"><span class="ic" style="font-size:15px;line-height:1;display:inline-flex">ℹ</span><span>Rating bersifat anonim dan hanya digunakan untuk peningkatan layanan ICONGreen. Rating tidak dapat diubah setelah disubmit.</span></div></div></div>
     </main>
@@ -71,5 +71,59 @@
 </div>
 
 <script src="../assets/app.js"></script>
+<script>
+(function () {
+  var groups = document.querySelectorAll('.stars--input');
+  var overallEmpty = document.getElementById('ratingOverallEmpty');
+  var overallResult = document.getElementById('ratingOverallResult');
+  var overallScore = document.getElementById('ratingOverallScore');
+  var overallStars = document.getElementById('ratingOverallStars');
+
+  function paint(group, value) {
+    var stars = group.querySelectorAll('.star');
+    stars.forEach(function (star, i) {
+      star.classList.toggle('is-on', i < value);
+    });
+  }
+
+  function updateOverall() {
+    var total = 0, filled = 0;
+    groups.forEach(function (group) {
+      var value = parseInt(group.getAttribute('data-rating'), 10) || 0;
+      if (value > 0) { total += value; filled++; }
+    });
+    if (filled === groups.length && filled > 0) {
+      var avg = total / filled;
+      overallEmpty.style.display = 'none';
+      overallResult.style.display = 'block';
+      overallScore.textContent = avg.toFixed(1);
+      overallStars.innerHTML = '';
+      for (var i = 1; i <= 5; i++) {
+        var span = document.createElement('span');
+        span.className = 'star' + (i <= Math.round(avg) ? ' is-on' : '');
+        span.textContent = '★';
+        overallStars.appendChild(span);
+      }
+    } else {
+      overallEmpty.style.display = 'block';
+      overallResult.style.display = 'none';
+    }
+  }
+
+  groups.forEach(function (group) {
+    var stars = group.querySelectorAll('.star');
+    stars.forEach(function (star, i) {
+      star.addEventListener('mouseenter', function () { paint(group, i + 1); });
+      star.addEventListener('click', function () {
+        group.setAttribute('data-rating', String(i + 1));
+        updateOverall();
+      });
+    });
+    group.addEventListener('mouseleave', function () {
+      paint(group, parseInt(group.getAttribute('data-rating'), 10) || 0);
+    });
+  });
+})();
+</script>
 </body>
 </html>

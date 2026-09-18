@@ -79,12 +79,20 @@ Figma** sudah dibangun dengan isi asli dan diverifikasi terhadap Figma:
 - `mitra/update-progress.html` &ndash; 3 tab (Engineering, Procurement, Construction)
 
 Tab yang **tidak punya frame sama sekali di file Figma sumber** (sudah
-dicek lewat audit jumlah frame per halaman) ditandai jelas dengan pesan
+dicek lewat audit jumlah frame per halaman &ndash; namanya cuma ada di
+daftar navigasi tab, tanpa frame konten) ditandai jelas dengan pesan
 "belum tersedia di desain Figma" alih-alih placeholder generik, supaya
 jelas mana yang memang tidak ada acuan desainnya:
 - `ops/wo-detail.html` &ndash; 7 tab sekunder (Timeline, Dokumen, Assign History, dll.)
 - `ops/project-detail.html` &ndash; 5 tab sekunder (Progress, S-Curve, Dokumen, Issues, Aktivitas)
-- `mitra/company-profile.html` &ndash; 4 tab sekunder (Legal & Certification, Technical Capability, Portfolio, Dokumen Perusahaan)
+
+Untuk tab yang tidak punya frame Figma tapi diminta dilengkapi juga,
+`mitra/company-profile.html` (Legal & Certification, Technical Capability,
+Portfolio, Dokumen Perusahaan &ndash; total 4 tab sekunder) sudah diisi
+dengan contoh isi yang wajar untuk profil mitra EPC (data Portfolio-nya
+disamakan dengan `ops/partner-detail.html` supaya konsisten antar
+portal), masing-masing dengan catatan jelas di halaman bahwa itu bukan
+data resmi dari Figma.
 
 Beberapa item di `mitra/update-progress.html` tab Construction (nama item
 & bobot) tidak dirinci di Figma untuk layar tersebut &ndash; diisi sebagai

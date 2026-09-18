@@ -480,6 +480,8 @@ table.tbl { width: 100%; border-collapse: collapse; }
 .stars .star { font-size: 20px; color: var(--slate-200); }
 .stars .star.is-on { color: #F59E0B; }
 .stars--sm .star { font-size: 15px; }
+.stars--input .star { cursor: pointer; transition: color .1s ease, transform .1s ease; }
+.stars--input .star:hover { transform: scale(1.12); }
 
 /* --------------------------------------------------------- 32. Pill select */
 .pill-select { display: flex; gap: 10px; }
