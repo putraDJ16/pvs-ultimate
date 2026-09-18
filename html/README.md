@@ -70,11 +70,27 @@ pages_mitra.py               generator halaman Mitra
 ## Cakupan per tab
 
 Beberapa halaman detail punya banyak tab (mis. `wo-detail.html` punya 8 tab,
-`project-detail.html` di Ops punya 6 tab). Tab pertama/utama dibangun lengkap
-dan sudah diverifikasi terhadap Figma; tab-tab sekunder (Partner, Dokumen,
-Issues, Aktivitas, dll.) ditandai jelas judulnya tapi isinya placeholder —
-ini pilihan sadar supaya seluruh 33 layar bisa selesai dengan rapi dalam satu
-proses konversi. Kalau perlu detail penuh di tab tertentu, kasih tahu saja.
+`project-detail.html` di Ops punya 6 tab). Setiap tab yang **punya frame di
+Figma** sudah dibangun dengan isi asli dan diverifikasi terhadap Figma:
+- `ops/partner-detail.html` &ndash; 4 tab (Profil, Kapabilitas, Portfolio, Performance)
+- `ops/wo-detail.html` &ndash; tab Overview + modal "Assign Mitra"
+- `ops/survey-detail.html` &ndash; form counter-offer "Ajukan Tanggal Alternatif"
+- `mitra/project-detail.html` &ndash; 5 tab (Overview, Progress, S-Curve, Dokumen, Aktivitas)
+- `mitra/update-progress.html` &ndash; 3 tab (Engineering, Procurement, Construction)
+
+Tab yang **tidak punya frame sama sekali di file Figma sumber** (sudah
+dicek lewat audit jumlah frame per halaman) ditandai jelas dengan pesan
+"belum tersedia di desain Figma" alih-alih placeholder generik, supaya
+jelas mana yang memang tidak ada acuan desainnya:
+- `ops/wo-detail.html` &ndash; 7 tab sekunder (Timeline, Dokumen, Assign History, dll.)
+- `ops/project-detail.html` &ndash; 5 tab sekunder (Progress, S-Curve, Dokumen, Issues, Aktivitas)
+- `mitra/company-profile.html` &ndash; 4 tab sekunder (Legal & Certification, Technical Capability, Portfolio, Dokumen Perusahaan)
+
+Beberapa item di `mitra/update-progress.html` tab Construction (nama item
+& bobot) tidak dirinci di Figma untuk layar tersebut &ndash; diisi sebagai
+perkiraan yang konsisten dengan tab Progress punya `project-detail.html`,
+ditandai jelas dengan catatan di halaman. Kalau perlu detail penuh di tab
+lain, kasih tahu saja.
 
 ## Design token
 
